@@ -23,24 +23,26 @@ export function Login() {
   }
 
   return (
-    <div className="box">
-      <form onSubmit={handleSubmit}>    
-        <Input 
-          label = "Email"
-          id = "email"
-          type = "email"
-          value = {values.user}
-          onChange = {handleChange}
-        />
-        <Input 
-          label = "Password"
-          id = "password"
-          type = "password"
-          value = {values.user}
-          onChange = {handleChange}
-        />
-        <button className="is-block button is-success" type="submit">Sign In</button>
-      </form>
+    <div className="container">
+      <div className="box">
+        <form onSubmit={handleSubmit}>    
+          <Input 
+            label = "Email"
+            id = "email"
+            type = "email"
+            value = {values.user}
+            onChange = {handleChange}
+          />
+          <Input 
+            label = "Password"
+            id = "password"
+            type = "password"
+            value = {values.user}
+            onChange = {handleChange}
+          />
+          <button className="is-block button is-success" type="submit">Sign In</button>
+        </form>
+      </div>
     </div>
   );
 }

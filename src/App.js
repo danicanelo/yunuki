@@ -3,14 +3,12 @@ import { Register } from "./auth/screens/register";
 
 function App() {
   return (
-   
       <div className="columns">
-        <div className="column is-offset-one-quarter">
+        <div className="column">
             <Login />
             <Register />
         </div>
       </div>
-
   );
 }
 

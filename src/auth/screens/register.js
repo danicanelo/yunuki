@@ -24,31 +24,33 @@ export function Register() {
   }
 
   return (
-    <div className="box">
-      <form onSubmit={handleSubmit}>    
-        <Input 
-          label = "Nombre"
-          id = "user"
-          type = "text"
-          value = {values.user}
-          onChange = {handleChange}
-        />
-        <Input 
-          label = "Email"
-          id = "email"
-          type = "email"
-          value = {values.user}
-          onChange = {handleChange}
-        />
-        <Input 
-          label = "Password"
-          id = "password"
-          type = "password"
-          value = {values.user}
-          onChange = {handleChange}
-        />
-        <button className="is-block button is-info" type="submit">Sign Up</button>
-      </form>
+    <div className="container">
+      <div className="box">
+        <form onSubmit={handleSubmit}>    
+          <Input 
+            label = "Nombre"
+            id = "user"
+            type = "text"
+            value = {values.user}
+            onChange = {handleChange}
+          />
+          <Input 
+            label = "Email"
+            id = "email"
+            type = "email"
+            value = {values.email}
+            onChange = {handleChange}
+          />
+          <Input 
+            label = "Password"
+            id = "password"
+            type = "password"
+            value = {values.password}
+            onChange = {handleChange}
+          />
+          <button className="is-block button is-info" type="submit">Sign Up</button>
+        </form>
+      </div>
     </div>
 
   );
