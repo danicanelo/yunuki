@@ -43,6 +43,10 @@ export function Login() {
           <button className="is-block button is-success" type="submit">Sign In</button>
         </form>
       </div>
+      <div>
+        <p>¿Aún no tienes cuenta?</p>
+        <button className="button is-info">Registrarse</button>
+      </div>
     </div>
   );
 }
