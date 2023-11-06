@@ -1,11 +1,12 @@
 import React from "react";
-import { Input } from "../../core/components/input";
+import { Input } from "./core/components/input";
+import { Select } from "./core/components/select";
 
-export function Register() {
+export function CreateYunuki() {
   const [values, setValues] = React.useState({
-    username: "",
-    email: "",
-    password: "",
+    name: "",
+    color: "",
+    breed: "",
   });
 
   function handleSubmit(evt) {
@@ -28,28 +29,22 @@ export function Register() {
       <div className="box">
         <form onSubmit={handleSubmit}>
           <Input
-            label="Nombre de usuario"
-            id="username"
+            label="Nombre"
+            id="name"
             type="text"
-            value={values.username}
+            value={values.name}
             onChange={handleChange}
           />
-          <Input
-            label="Email"
-            id="email"
-            type="email"
-            value={values.email}
-            onChange={handleChange}
+          <Select
+            label="¿De qué color quieres que sea tu Yunuki?"
+            values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}
           />
-          <Input
-            label="Password"
-            id="password"
-            type="password"
-            value={values.password}
-            onChange={handleChange}
+          <Select
+            label="Selecciona un tipo de Yunuki"
+            values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}
           />
           <button className="is-block button is-info" type="submit">
-            Registrarse
+            ¡Crear Yunuki!
           </button>
         </form>
       </div>
