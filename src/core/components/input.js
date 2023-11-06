@@ -1,5 +1,3 @@
-import React from "react";
-
 export function Input({ label, id, type, value, onChange }) {
   return (
     <div className="field">

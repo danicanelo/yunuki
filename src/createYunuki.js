@@ -36,11 +36,11 @@ export function CreateYunuki() {
             onChange={handleChange}
           />
           <Select
-            label="¿De qué color quieres que sea tu Yunuki?"
-            values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}
+            label="Selecciona un tipo de Yunuki"
+            values={["Yanaka", "Yonoko", "Yiniki"]}
           />
           <Select
-            label="Selecciona un tipo de Yunuki"
+            label="¿De qué color quieres que sea tu Yunuki?"
             values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}
           />
           <button className="is-block button is-info" type="submit">
