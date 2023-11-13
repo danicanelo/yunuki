@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../../core/components/button";
 import { Input } from "../../core/components/input";
 
 export function Login() {
@@ -25,27 +27,29 @@ export function Login() {
   return (
     <div className="container">
       <div className="box">
-        <form onSubmit={handleSubmit}>    
-          <Input 
-            label = "Email"
-            id = "email"
-            type = "email"
-            value = {values.user}
-            onChange = {handleChange}
+        <form onSubmit={handleSubmit}>
+          <Input
+            label="Email"
+            id="email"
+            type="email"
+            value={values.user}
+            onChange={handleChange}
           />
-          <Input 
-            label = "Password"
-            id = "password"
-            type = "password"
-            value = {values.user}
-            onChange = {handleChange}
+          <Input
+            label="Password"
+            id="password"
+            type="password"
+            value={values.user}
+            onChange={handleChange}
           />
-          <button className="is-block button is-success" type="submit">Sign In</button>
+          <Button type="Success">Entrar</Button>
         </form>
       </div>
       <div>
         <p>¿Aún no tienes cuenta?</p>
-        <button className="button is-info">Registrarse</button>
+        <Link to="/register">
+          <Button type="Info">Registrarse</Button>
+        </Link>
       </div>
     </div>
   );

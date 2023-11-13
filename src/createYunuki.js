@@ -1,5 +1,7 @@
 import React from "react";
+import { Button } from "./core/components/button";
 import { Input } from "./core/components/input";
+import { YunukiTypeMsg } from "./core/components/message";
 import { Select } from "./core/components/select";
 
 export function CreateYunuki() {
@@ -39,13 +41,12 @@ export function CreateYunuki() {
             label="Selecciona un tipo de Yunuki"
             values={["Yanaka", "Yonoko", "Yiniki"]}
           />
+          <YunukiTypeMsg></YunukiTypeMsg>
           <Select
             label="¿De qué color quieres que sea tu Yunuki?"
             values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}
           />
-          <button className="is-block button is-info" type="submit">
-            ¡Crear Yunuki!
-          </button>
+          <Button type="Success">¡Crear Yunuki!</Button>
         </form>
       </div>
     </div>

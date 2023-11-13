@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../../core/components/button";
 import { Input } from "../../core/components/input";
 
 export function Register() {
@@ -48,9 +49,7 @@ export function Register() {
             value={values.password}
             onChange={handleChange}
           />
-          <button className="is-block button is-info" type="submit">
-            Registrarse
-          </button>
+          <Button type="Info">Registrarse</Button>
         </form>
       </div>
     </div>
