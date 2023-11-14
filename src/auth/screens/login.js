@@ -30,6 +30,7 @@ export function Login() {
   return (
     <div className="section">
       <div className="container">
+      <img className="m-auto is-block p-6" src="https://i.postimg.cc/8zZ6M3bW/yunuki-logo.png" />
         <div className="box mt-6 mx-6">
           <form onSubmit={handleSubmit}>
             <Input
@@ -48,7 +49,7 @@ export function Login() {
             />
             {/* <Button type="Success">Entrar</Button> */}
             <button type="submit" className="button is-success">
-              Entrar2
+              Entrar
             </button>
           </form>
         </div>

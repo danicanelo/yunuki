@@ -8,9 +8,9 @@ export function Navbar() {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
+        <a className="navbar-item" href="http://localhost:3001/">
           <img
-            src="https://bulma.io/images/bulma-logo.png"
+            src="https://i.postimg.cc/8zZ6M3bW/yunuki-logo.png"
             width="112"
             height="28"
           />

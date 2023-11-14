@@ -28,6 +28,7 @@ export function Register() {
   return (
     <div className="section">
       <div className="container">
+      <img className="m-auto is-block p-6" src="https://i.postimg.cc/8zZ6M3bW/yunuki-logo.png" />
         <div className="box mt-6 mx-6">
           <form onSubmit={handleSubmit}>
             <Input
