@@ -28,32 +28,36 @@ export function Login() {
   }
 
   return (
-    <div className="container">
-      <div className="box">
-        <form onSubmit={handleSubmit}>
-          <Input
-            label="Nombre de usuario"
-            id="username"
-            type="text"
-            value={values.user}
-            onChange={handleChange}
-          />
-          <Input
-            label="Password"
-            id="password"
-            type="password"
-            value={values.user}
-            onChange={handleChange}
-          />
-          {/* <Button type="Success">Entrar</Button> */}
-          <button type="submit" className="button is-success">Entrar2</button>
-        </form>
-      </div>
-      <div>
-        <p>¿Aún no tienes cuenta?</p>
-        <Link to="/register">
-          <Button type="Info">Registrarse</Button>
-        </Link>
+    <div className="section">
+      <div className="container">
+        <div className="box mt-6 mx-6">
+          <form onSubmit={handleSubmit}>
+            <Input
+              label="Nombre de usuario"
+              id="username"
+              type="text"
+              value={values.user}
+              onChange={handleChange}
+            />
+            <Input
+              label="Password"
+              id="password"
+              type="password"
+              value={values.user}
+              onChange={handleChange}
+            />
+            {/* <Button type="Success">Entrar</Button> */}
+            <button type="submit" className="button is-success">
+              Entrar2
+            </button>
+          </form>
+        </div>
+        <div className="mt-6 is-flex is-justify-content-center is-align-items-center">
+          <p className="mr-4">¿Aún no tienes cuenta?</p>
+          <Link to="/register">
+            <Button type="Info">Registrarse</Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

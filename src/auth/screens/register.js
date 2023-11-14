@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "../../core/components/button";
 import { Input } from "../../core/components/input";
 
@@ -25,32 +26,36 @@ export function Register() {
   }
 
   return (
-    <div className="container">
-      <div className="box">
-        <form onSubmit={handleSubmit}>
-          <Input
-            label="Nombre de usuario"
-            id="username"
-            type="text"
-            value={values.username}
-            onChange={handleChange}
-          />
-          <Input
-            label="Email"
-            id="email"
-            type="email"
-            value={values.email}
-            onChange={handleChange}
-          />
-          <Input
-            label="Password"
-            id="password"
-            type="password"
-            value={values.password}
-            onChange={handleChange}
-          />
-          <Button type="Info">Registrarse</Button>
-        </form>
+    <div className="section">
+      <div className="container">
+        <div className="box mt-6 mx-6">
+          <form onSubmit={handleSubmit}>
+            <Input
+              label="Nombre de usuario"
+              id="username"
+              type="text"
+              value={values.username}
+              onChange={handleChange}
+            />
+            <Input
+              label="Email"
+              id="email"
+              type="email"
+              value={values.email}
+              onChange={handleChange}
+            />
+            <Input
+              label="Password"
+              id="password"
+              type="password"
+              value={values.password}
+              onChange={handleChange}
+            />
+            <Link to="/create-yunuki">
+              <Button type="Info">Registrarse</Button>
+            </Link>
+          </form>
+        </div>
       </div>
     </div>
   );
