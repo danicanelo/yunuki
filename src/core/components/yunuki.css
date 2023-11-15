@@ -1,0 +1,93 @@
+.yunuki {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px; /* Ajustado para darle forma de gota */
+    width: 280px;
+    background-color: #14debc;
+    border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%; /* Esto dará la forma de gota */
+    position: relative;
+    padding: 40px;
+    animation: move 5s infinite;
+  }
+  
+  .eye {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 50%;
+  }
+  
+  .mouth {
+    width: 120px;
+    height: 20px;
+    border: 3px solid #000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0 0 50px 50px;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .leg {
+    width: 20px;
+    height: 60px;
+    background-color: #14debc;
+    border-bottom: 3px solid #000;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    bottom: -20px; /* Ajusta este valor si quieres que las patas sobresalgan más o menos */
+  }
+  
+  .leg.left {
+    left: 20%;
+  }
+  
+  .leg.right {
+    right: 20%;
+  }
+  
+  
+  @keyframes blink {
+    0%, 20%, 100% {
+        height: 30px;
+    }
+    10% {
+        height: 1px;
+    }
+  }
+  
+  .eye {
+    animation: blink 3s infinite;
+  }
+  
+  @keyframes move {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(100px); /* Ajusta esta distancia según lo lejos que quieras que se desplace */
+    }
+  }
+  
+  .yunuki {
+    /* ... otros estilos ... */
+    animation: move 6s infinite; /* Ajusta el tiempo si quieres que se mueva más rápido o más lento */
+  }
+  
+  @keyframes moveLeg {
+    0%, 100% {
+        bottom: -10px;
+    }
+    50% {
+        bottom: -20px;
+    }
+  }
+  
+  .leg {
+    /* ... otros estilos ... */
+    animation: moveLeg 0.5s infinite; /* Que las patas se muevan rápido para parecer que camina */
+  }
