@@ -1,14 +1,16 @@
 export default class AuthService {
-  private static readonly apiUrl = "http://localhost:3000";
+  private static readonly apiUrl = "http://localhost:3000"; //ruta para conectar con la API
   private static readonly yunukiJwt = "yunuki-jwt"; // clave para el almacenamiento local donde se guardará el token
 
   static async login(username: string, password: string) {
+    // 'res' va a contener finalmente el token devuelto por la API, si es que el proceso ha ido correctamente
     const res = await fetch(this.apiUrl + "/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ //el cuerpo de la solicitud que se enviará (contendrá los valores introducidos, en formato JSON)
+      body: JSON.stringify({
+        // el cuerpo de la solicitud que se está enviando(contiene los valores introducidos, en formato JSON)
         username,
         password,
       }),

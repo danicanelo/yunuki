@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logoYunuki from "../../assets/yunuki-logo.png";
 import { Button } from "../../core/components/button";
 import { Input } from "../../core/components/input";
 import AuthService from "../services/auth.service.ts";
@@ -30,7 +31,11 @@ export function Login() {
   return (
     <div className="section">
       <div className="container">
-      <img className="m-auto is-block p-6" src="https://i.postimg.cc/8zZ6M3bW/yunuki-logo.png" />
+        <img
+          className="m-auto is-block p-6"
+          src={logoYunuki}
+          alt="Yunuki logo"
+        />
         <div className="box mt-6 mx-6">
           <form onSubmit={handleSubmit}>
             <Input

@@ -1,19 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
+import logoYunuki from "../../assets/yunuki-logo.png";
+
 export function Navbar() {
   return (
     <nav
-      className="navbar is-link"
+      className="navbar is-white has-shadow"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="navbar-brand">
         <a className="navbar-item" href="http://localhost:3001/">
-          <img
-            src="https://i.postimg.cc/8zZ6M3bW/yunuki-logo.png"
-            width="112"
-            height="28"
-          />
+          <img src={logoYunuki} width="112" height="28" />
         </a>
         <a
           role="button"
