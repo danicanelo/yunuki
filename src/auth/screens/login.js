@@ -46,7 +46,7 @@ export function Login() {
               onChange={handleChange}
             />
             <Input
-              label="Password"
+              label="Contraseña"
               id="password"
               type="password"
               value={values.user}
@@ -57,6 +57,9 @@ export function Login() {
               Entrar
             </button>
           </form>
+        </div>
+        <div className="has-text-centered">
+          <a href="#">¿Olvidaste tu contraseña?</a>
         </div>
         <div className="mt-6 is-flex is-justify-content-center is-align-items-center">
           <p className="mr-4">¿Aún no tienes cuenta?</p>
