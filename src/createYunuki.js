@@ -34,6 +34,8 @@ export function CreateYunuki() {
       <div className="section">
         <div className="container">
           <div className="box mx-6">
+            <p className="title has-text-centered">¡Bienvenido/a, Nombre de Usuario!</p>
+            <p className="subtitle has-text-centered">Crea tu Yunuki a continuación</p>
             <form onSubmit={handleSubmit}>
               <Input
                 label="Nombre para tu Yunuki"

@@ -33,6 +33,7 @@ export function Navbar() {
           {/* <a className="navbar-item">Home</a>
           <a className="navbar-item">Documentation</a> */}
           <div className="navbar-item">
+            <p className="mr-3 has-text-weight-semibold">Nombre de Usuario</p>
             <div className="buttons">
               <a className="button is-primary">
                 <strong>Cambiar de usuario</strong>
