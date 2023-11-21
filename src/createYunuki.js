@@ -36,7 +36,7 @@ export function CreateYunuki() {
           <div className="box mx-6">
             <form onSubmit={handleSubmit}>
               <Input
-                label="Nombre"
+                label="Nombre para tu Yunuki"
                 id="name"
                 type="text"
                 value={values.name}

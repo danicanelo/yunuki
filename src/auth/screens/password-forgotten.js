@@ -4,11 +4,9 @@ import logoYunuki from "../../assets/yunuki-logo.png";
 import { Button } from "../../core/components/button";
 import { Input } from "../../core/components/input";
 
-export function Register() {
+export function PasswordForgotten() {
   const [values, setValues] = React.useState({
-    username: "",
     email: "",
-    password: "",
   });
 
   function handleSubmit(evt) {
@@ -37,35 +35,14 @@ export function Register() {
         <div className="box mt-6 mx-6">
           <form onSubmit={handleSubmit}>
             <Input
-              label="Nombre de usuario"
-              id="username"
-              type="text"
-              value={values.username}
-              onChange={handleChange}
-            />
-            <Input
-              label="Email"
+              label="Escribe el email con el que te registraste y te enviaremos tu contraseña"
               id="email"
               type="email"
               value={values.email}
               onChange={handleChange}
             />
-            <Input
-              label="Contraseña"
-              id="password"
-              type="password"
-              value={values.password}
-              onChange={handleChange}
-            />
-            <Input
-              label="Repite la contraseña"
-              id="password-repeat"
-              type="password"
-              value={values.password}
-              onChange={handleChange}
-            />
             <Link to="/create-yunuki">
-              <Button type="Info">Registrarse</Button>
+              <Button type="Info">Solicitar contraseña</Button>
             </Link>
           </form>
         </div>
