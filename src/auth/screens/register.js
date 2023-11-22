@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logoYunuki from "../../assets/yunuki-logo.png";
 import { Input } from "../../core/components/input";
 import RegisterService from "../services/register.service.ts";
@@ -11,9 +11,24 @@ export function Register() {
     password: "",
   });
 
-  function handleSubmit(evt) {
+  const navigate = useNavigate();
+
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    RegisterService.register(values.username, values.email, values.password);
+    try {
+      const result = await RegisterService.register(
+        values.username,
+        values.email,
+        values.password
+      );
+      if (result) {
+        navigate("/create-yunuki");
+      } else {
+        alert("Introduce datos adecuados");
+      }
+    } catch (e) {
+      console.log("patataerror", e);
+    }
   }
 
   function handleChange(evt) {
@@ -33,6 +48,7 @@ export function Register() {
       <div className="box mt-6 mx-6">
         <form onSubmit={handleSubmit}>
           <Input
+            minLength={4}
             label="Nombre de usuario"
             id="username"
             type="text"
@@ -40,6 +56,7 @@ export function Register() {
             onChange={handleChange}
           />
           <Input
+            minLength={1}
             label="Email"
             id="email"
             type="email"
@@ -47,17 +64,16 @@ export function Register() {
             onChange={handleChange}
           />
           <Input
+            minLength={6}
             label="Contraseña"
             id="password"
             type="password"
             value={values.password}
             onChange={handleChange}
           />
-          <Link to="/create-yunuki">
-            <button type="submit" className="button is-info">
-              Registrarse
-            </button>
-          </Link>
+          <button type="submit" className="button is-info">
+            Registrarse
+          </button>
         </form>
       </div>
     </div>

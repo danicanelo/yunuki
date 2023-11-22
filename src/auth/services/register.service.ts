@@ -1,8 +1,8 @@
 export default class RegisterService {
   private static readonly apiUrl = "http://localhost:3000";
 
-  static async register(username: string, email: string, pass: string) {
-    await fetch(this.apiUrl + "/users/register", {
+  static async register(username: string, email: string, password: string) {
+    const result = await fetch(this.apiUrl + "/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -10,8 +10,13 @@ export default class RegisterService {
       body: JSON.stringify({
         username,
         email,
-        pass,
+        password,
       }),
     });
+    if(result.status === 201){
+      return true;
+    } else {
+      return false;
+    }
   }
 }

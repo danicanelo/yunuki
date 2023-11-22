@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoYunuki from "../../assets/yunuki-logo.png";
 import { Button } from "../../core/components/button";
 import { Input } from "../../core/components/input";
@@ -11,10 +11,20 @@ export function Login() {
     password: "",
   });
 
-  function handleSubmit(evt) {
+  const navigate = useNavigate();
+
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    AuthService.login(values.username, values.password);
-    // console.log(values);
+    try {
+      const result = await AuthService.login(values.username, values.password);
+      if(result){
+        navigate('/yunuki')
+      } else {
+        alert('Login erróneo');
+      }
+    } catch (e) {
+      console.log("patataerror", e);
+    }
   }
 
   function handleChange(evt) {
