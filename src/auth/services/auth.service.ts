@@ -24,6 +24,25 @@ export default class AuthService {
     return false;
   }
 
+  static async register(username: string, email: string, password: string) {
+    const result = await fetch(this.apiUrl + "/users/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+    });
+    if(result.status === 201){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   static getJwt() {
     localStorage.getItem(this.jwtKey);
   }

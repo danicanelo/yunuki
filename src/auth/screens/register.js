@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import logoYunuki from "../../assets/yunuki-logo.png";
 import { Input } from "../../core/components/input";
-import RegisterService from "../services/register.service.ts";
+import AuthService from "../services/auth.service.ts";
 
 export function Register() {
   const [values, setValues] = React.useState({
@@ -16,7 +16,7 @@ export function Register() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const result = await RegisterService.register(
+      const result = await AuthService.register(
         values.username,
         values.email,
         values.password
