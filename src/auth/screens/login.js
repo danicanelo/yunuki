@@ -4,6 +4,7 @@ import logoYunuki from "../../assets/yunuki-logo.png";
 import { Button } from "../../core/components/button";
 import { Input } from "../../core/components/input";
 import AuthService from "../services/auth.service.ts";
+import YunukiService from "../services/yunuki.service.ts";
 
 export function Login() {
   const [values, setValues] = React.useState({
@@ -18,7 +19,8 @@ export function Login() {
     try {
       const result = await AuthService.login(values.username, values.password);
       if(result){
-        navigate('/yunuki')
+        const yunuki = await YunukiService.getYunuki(result.username);
+        console.log(yunuki);
       } else {
         alert('Login erróneo');
       }

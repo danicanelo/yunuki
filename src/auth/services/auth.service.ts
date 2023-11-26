@@ -44,7 +44,7 @@ export default class AuthService {
   }
 
   static getJwt() {
-    localStorage.getItem(this.jwtKey);
+    return localStorage.getItem(this.jwtKey);
   }
 
   private static saveJwt(jwt: string) {
