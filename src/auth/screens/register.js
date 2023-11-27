@@ -53,6 +53,7 @@ export function Register() {
             id="username"
             type="text"
             value={values.username}
+            placeholder="Introduce tu nombre de usuario"
             onChange={handleChange}
           />
           <Input
@@ -61,6 +62,7 @@ export function Register() {
             id="email"
             type="email"
             value={values.email}
+            placeholder="Introduce tu email"
             onChange={handleChange}
           />
           <Input
@@ -69,6 +71,7 @@ export function Register() {
             id="password"
             type="password"
             value={values.password}
+            placeholder="Introduce tu contraseña"
             onChange={handleChange}
           />
           <button type="submit" className="button is-info">

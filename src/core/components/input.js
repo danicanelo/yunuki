@@ -1,4 +1,12 @@
-export function Input({ label, id, type, value, onChange, minLength=0 }) {
+export function Input({
+  label,
+  id,
+  type,
+  value,
+  placeholder,
+  onChange,
+  minLength = 0,
+}) {
   return (
     <div className="field">
       <label className="label" htmlFor="{id}">
@@ -12,6 +20,7 @@ export function Input({ label, id, type, value, onChange, minLength=0 }) {
           name={id}
           type={type}
           value={value}
+          placeholder={placeholder}
           onChange={onChange}
         />
       </div>
