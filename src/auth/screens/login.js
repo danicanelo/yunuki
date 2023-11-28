@@ -18,11 +18,12 @@ export function Login() {
     evt.preventDefault();
     try {
       const result = await AuthService.login(values.username, values.password);
-      if(result){
+      if (result) {
         const yunuki = await YunukiService.getYunuki(result.username);
         console.log(yunuki);
+        //navigate("/yunuki");
       } else {
-        alert('Login erróneo');
+        alert("Login erróneo");
       }
     } catch (e) {
       console.log("patataerror", e);
@@ -49,6 +50,7 @@ export function Login() {
             label="Nombre de usuario"
             id="username"
             type="text"
+            placeholder="Introduce tu nombre de usuario"
             value={values.user}
             onChange={handleChange}
           />
@@ -56,6 +58,7 @@ export function Login() {
             label="Contraseña"
             id="password"
             type="password"
+            placeholder="Introduce tu contraseña"
             value={values.user}
             onChange={handleChange}
           />

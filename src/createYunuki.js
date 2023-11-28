@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import AuthService from "./auth/services/auth.service.ts";
 import createYunukiService from "./auth/services/createYunuki.service.ts";
 import { Input } from "./core/components/input";
 import { YunukiTypeMsg } from "./core/components/message";
@@ -7,13 +7,28 @@ import { Navbar } from "./core/components/navbar";
 import { Select } from "./core/components/select";
 
 export function CreateYunuki() {
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const user = await AuthService.getUser();
+        setUsername(user.username);
+      } catch (e) {
+        console.error("Usuario no encontrado", e);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const [username, setUsername] = React.useState("");
+
   const [values, setValues] = React.useState({
     name: "",
     breed: "",
     color: "",
   });
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -25,7 +40,7 @@ export function CreateYunuki() {
         values.color
       );
       if (result) {
-        console.log(values);
+        console.log("hola");
       } else {
         alert("Introduce datos adecuados");
       }
@@ -51,9 +66,7 @@ export function CreateYunuki() {
       <div className="section">
         <div className="container">
           <div className="box mx-6">
-            <p className="title has-text-centered">
-              ¡Bienvenido/a, Nombre de Usuario!
-            </p>
+            <p className="title has-text-centered">¡Hola, {username ?? ""}!</p>
             <p className="subtitle has-text-centered">
               Crea tu Yunuki a continuación
             </p>
@@ -62,6 +75,7 @@ export function CreateYunuki() {
                 label="Nombre para tu Yunuki"
                 id="name"
                 type="text"
+                placeholder="Introduce un nombre"
                 value={values.name}
                 onChange={handleChange}
               />
@@ -69,7 +83,10 @@ export function CreateYunuki() {
                 label="Selecciona un tipo de Yunuki"
                 values={["Yanaka", "Yonoko", "Yiniki"]}
               />
-              <YunukiTypeMsg></YunukiTypeMsg>
+              <YunukiTypeMsg
+                type="Yonoko"
+                msg="Los Yonoko son una raza de Yunuki sunt voluptate eiusmod ut aute aute. Irure minim eiusmod non eiusmod et voluptate cillum do irure officia non fugiat mollit. Cillum quis nulla proident ea do cillum. Sint qui aliquip qui culpa irure proident. Id est Lorem ex fugiat labore non anim incididunt commodo tempor reprehenderit est. Culpa amet eu sunt et velit dolore laborum ullamco in tempor elit. Exercitation ipsum mollit irure eu ut eiusmod cupidatat."
+              />
               <Select
                 label="¿De qué color quieres que sea tu Yunuki?"
                 values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}

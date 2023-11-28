@@ -38,6 +38,7 @@ export function PasswordForgotten() {
               label="Escribe el email con el que te registraste y te enviaremos tu contraseña"
               id="email"
               type="email"
+              placeholder="Introduce tu email"
               value={values.email}
               onChange={handleChange}
             />

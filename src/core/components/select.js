@@ -1,5 +1,3 @@
-import React from "react";
-
 export function Select({ label, id, values }) {
   return (
     <div className="field">

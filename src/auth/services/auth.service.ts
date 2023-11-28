@@ -1,16 +1,14 @@
 export default class AuthService {
-  private static readonly apiUrl = "http://localhost:3000"; //ruta para conectar con la API
-  private static readonly jwtKey = "yunuki-jwt"; // clave para el almacenamiento local donde se guardará el token
+  private static readonly apiUrl = "http://localhost:3000";
+  private static readonly jwtKey = "yunuki-jwt";
 
   static async login(username: string, password: string) {
-    // 'res' va a contener finalmente el token devuelto por la API, si es que el proceso ha ido correctamente
     const res = await fetch(this.apiUrl + "/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // el cuerpo de la solicitud que se está enviando(contiene los valores introducidos, en formato JSON)
         username,
         password,
       }),
@@ -36,11 +34,23 @@ export default class AuthService {
         password,
       }),
     });
-    if(result.status === 201){
+    if (result.status === 201) {
       return true;
     } else {
       return false;
     }
+  }
+
+  static async getUser() {
+    const result = await fetch(this.apiUrl + "/users/me", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + AuthService.getJwt(),
+        "Content-Type": "application/json",
+      },
+    });
+
+    return await result.json();
   }
 
   static getJwt() {

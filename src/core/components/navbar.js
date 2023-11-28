@@ -1,8 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
+import { useEffect, useState } from "react";
 import logoYunuki from "../../assets/yunuki-logo.png";
+import AuthService from "../../auth/services/auth.service.ts";
 
 export function Navbar() {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const user = await AuthService.getUser();
+        setUsername(user.username);
+      } catch (e) {
+        console.error("Usuario no encontrado", e);
+      }
+    };
+    fetchData();
+  });
+
+  const [username, setUsername] = useState("");
+
   return (
     <nav
       className="navbar is-white has-shadow"
@@ -33,7 +49,7 @@ export function Navbar() {
           {/* <a className="navbar-item">Home</a>
           <a className="navbar-item">Documentation</a> */}
           <div className="navbar-item">
-            <p className="mr-3 has-text-weight-semibold">Nombre de Usuario</p>
+            <p className="mr-3 has-text-weight-semibold">{username ?? ""}</p>
             <div className="buttons">
               <a className="button is-primary">
                 <strong>Cambiar de usuario</strong>

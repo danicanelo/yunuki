@@ -22,6 +22,7 @@ export function Register() {
         values.password
       );
       if (result) {
+        await AuthService.login(values.username, values.password);
         navigate("/create-yunuki");
       } else {
         alert("Introduce datos adecuados");
