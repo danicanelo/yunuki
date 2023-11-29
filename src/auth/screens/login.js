@@ -19,14 +19,17 @@ export function Login() {
     try {
       const result = await AuthService.login(values.username, values.password);
       if (result) {
-        const yunuki = await YunukiService.getYunuki(result.username);
-        console.log(yunuki);
-        //navigate("/yunuki");
+        const yunuki = await YunukiService.getYunuki(values.username);
+        if (yunuki.status === 404) {
+          navigate("/create-yunuki");
+        } else {
+          navigate("/yunuki");
+        }
       } else {
         alert("Login erróneo");
       }
     } catch (e) {
-      console.log("patataerror", e);
+      alert("patataerror", e);
     }
   }
 

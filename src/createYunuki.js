@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import AuthService from "./auth/services/auth.service.ts";
 import createYunukiService from "./auth/services/createYunuki.service.ts";
 import { Input } from "./core/components/input";
@@ -28,7 +29,7 @@ export function CreateYunuki() {
     color: "",
   });
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -40,7 +41,7 @@ export function CreateYunuki() {
         values.color
       );
       if (result) {
-        console.log("hola");
+        navigate("/yunuki");
       } else {
         alert("Introduce datos adecuados");
       }
@@ -56,7 +57,6 @@ export function CreateYunuki() {
       ...values,
       [name]: value,
     };
-
     setValues(newValues);
   }
 
@@ -81,7 +81,9 @@ export function CreateYunuki() {
               />
               <Select
                 label="Selecciona un tipo de Yunuki"
+                id="breed"
                 values={["Yanaka", "Yonoko", "Yiniki"]}
+                onChange={handleChange}
               />
               <YunukiTypeMsg
                 type="Yonoko"
@@ -89,7 +91,9 @@ export function CreateYunuki() {
               />
               <Select
                 label="¿De qué color quieres que sea tu Yunuki?"
+                id="color"
                 values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}
+                onChange={handleChange}
               />
               <button type="submit" className="button is-success">
                 ¡Crear Yunuki!
