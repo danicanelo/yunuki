@@ -1,5 +1,4 @@
 import React from "react";
-import AuthService from "./auth/services/auth.service.ts";
 import YunukiService from "./auth/services/yunuki.service.ts";
 import { Button } from "./core/components/button";
 import { Card } from "./core/components/card";
@@ -12,27 +11,29 @@ const YunukiStageStyles = {
   ButtonStyle: "mx-5",
 };
 export function YunukiStage() {
-  /**
-   * Lógica que obtenga el yunuki actual del usuario logeado para utilizar sus valores (nombre, hambre, cansancio, etc.)
-   */
-  const [yunukiName, setYunukiName] = React.useState("");
+  const [yunuki, setYunuki] = React.useState();
 
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const user = await AuthService.getUser();
-        console.log(user.username);
-        const yunuki = await YunukiService.getYunuki(user.username);
-        console.log(yunuki);
-        console.log(yunuki.name);
-        setYunukiName(yunuki.name);
+        const yunuki = await YunukiService.getYunuki();
+        setYunuki(yunuki);
       } catch (e) {
-        console.error("Usuario no encontrado", e);
+        console.error("Yunuki no encontrado", e);
       }
     };
 
     fetchData();
   }, []);
+
+  if (!yunuki) {
+    return (
+      <div>
+        <Navbar />
+        <div>Cargando...</div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -40,11 +41,11 @@ export function YunukiStage() {
       <div className="hero">
         <div className="columns">
           <div className="fondo2 column is-one-quarter p-6">
-            <p className="title">{yunukiName ?? ""}</p>
+            <p className="title">{yunuki.name ?? ""}</p>
             <div>
-              <ProgressBar label="Hambre" value="10" />
-              <ProgressBar label="Suciedad" value="5" />
-              <ProgressBar label="Sueño" value="58" />
+              <ProgressBar label="Hambre" value={yunuki.hunger} />
+              <ProgressBar label="Suciedad" value={yunuki.dirt} />
+              <ProgressBar label="Sueño" value={yunuki.tiredness} />
             </div>
             <Card
               title="¿Cómo funciona?"

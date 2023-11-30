@@ -1,10 +1,10 @@
 import AuthService from "./auth.service.ts";
 
-export default class YunukiService {
+export default class FeedYunukiService {
   private static readonly apiUrl = "http://localhost:3000";
 
-  static async getYunuki() {
-    const res = await fetch(this.apiUrl + "/yunukis/get", {
+  static async feedYunuki() {
+    const res = await fetch(this.apiUrl + "/yunukis/feed", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + AuthService.getJwt(),

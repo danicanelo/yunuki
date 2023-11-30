@@ -5,7 +5,7 @@ export function ProgressBar({ label, value }) {
       <progress
         className="progress is-primary"
         value={value}
-        max="100"
+        max="10"
       ></progress>
     </div>
   );
