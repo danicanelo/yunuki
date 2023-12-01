@@ -39,7 +39,7 @@
   border-bottom: 3px solid #000;
   border-radius: 0 0 10px 10px;
   position: absolute;
-  bottom: -20px;
+  bottom: -5px;
 }
 
 .leg.left {
@@ -62,7 +62,7 @@
 }
 
 .eye {
-  animation: blink 10s infinite;
+  animation: blink 5s infinite;
 }
 
 @keyframes breath {
@@ -78,36 +78,9 @@
 }
 
 .mouth {
-  animation: breath 10s infinite;
+  animation: breath 5s infinite;
 }
 
-@keyframes move {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(
-      50px
-    ); /* Ajusta esta distancia según lo lejos que quieras que se desplace */
-  }
-}
 
-.yunuki {
-  /* ... otros estilos ... */
-  animation: move 10s infinite; /* Ajusta el tiempo si quieres que se mueva más rápido o más lento */
-}
 
-@keyframes moveLeg {
-  0%,
-  100% {
-    bottom: -10px;
-  }
-  50% {
-    bottom: -20px;
-  }
-}
 
-.leg {
-  animation: moveLeg 10s infinite;
-}
