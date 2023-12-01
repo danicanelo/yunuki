@@ -34,7 +34,6 @@ export function CreateYunuki() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      console.log(values);
       const result = await createYunukiService.createYunuki(
         values.name,
         values.breed,
@@ -46,7 +45,7 @@ export function CreateYunuki() {
         alert("Introduce datos adecuados");
       }
     } catch (e) {
-      console.log("patataerror", e);
+      console.log("No se puede conectar con el servidor", e);
     }
   }
 
@@ -57,7 +56,6 @@ export function CreateYunuki() {
       ...values,
       [name]: value,
     };
-    console.log(newValues);
     setValues(newValues);
   }
 

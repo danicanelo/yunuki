@@ -11,18 +11,18 @@ export function YunukiStage() {
   const [fetchInterval, setFetchInterval] = React.useState();
 
   async function feedYunuki() {
-    const feedAction = await YunukiService.feedYunuki();
-    setYunuki(feedAction);
+    const newYunuki = await YunukiService.feedYunuki();
+    setYunuki(newYunuki);
   }
 
   async function cleanYunuki() {
-    const cleanAction = await YunukiService.cleanYunuki();
-    setYunuki(cleanAction);
+    const newYunuki = await YunukiService.cleanYunuki();
+    setYunuki(newYunuki);
   }
 
   async function sleepYunuki() {
-    const sleepAction = await YunukiService.sleepYunuki();
-    setYunuki(sleepAction);
+    const newYunuki = await YunukiService.sleepYunuki();
+    setYunuki(newYunuki);
   }
 
   const fetchYunukiData = async () => {
