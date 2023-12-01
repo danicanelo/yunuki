@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import AuthService from "./auth/services/auth.service.ts";
-import createYunukiService from "./auth/services/createYunuki.service.ts";
-import { Input } from "./core/components/input";
-import { YunukiTypeMsg } from "./core/components/message";
-import { Navbar } from "./core/components/navbar";
-import { Select } from "./core/components/select";
+import AuthService from "../../auth/services/auth.service.ts";
+import { Input } from "../../core/components/input.js";
+import { YunukiTypeMsg } from "../../core/components/message.js";
+import { Navbar } from "../../core/components/navbar.js";
+import { Select } from "../../core/components/select.js";
+import createYunukiService from "../services/createYunuki.service.ts";
 
 export function CreateYunuki() {
   React.useEffect(() => {
@@ -57,6 +57,7 @@ export function CreateYunuki() {
       ...values,
       [name]: value,
     };
+    console.log(newValues);
     setValues(newValues);
   }
 
@@ -80,10 +81,11 @@ export function CreateYunuki() {
                 onChange={handleChange}
               />
               <Select
-                label="Selecciona un tipo de Yunuki"
+                label="Tipo de Yunuki"
                 id="breed"
                 values={["Yanaka", "Yonoko", "Yiniki"]}
                 onChange={handleChange}
+                placeholder="Selecciona un tipo de Yunuki"
               />
               <YunukiTypeMsg
                 type="Yonoko"
@@ -94,6 +96,7 @@ export function CreateYunuki() {
                 id="color"
                 values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}
                 onChange={handleChange}
+                placeholder="Selecciona un color para tu Yunuki"
               />
               <button type="submit" className="button is-success">
                 ¡Crear Yunuki!

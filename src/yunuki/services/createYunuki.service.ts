@@ -1,9 +1,9 @@
-import AuthService from "./auth.service.ts";
+import AuthService from "../../auth/services/auth.service.ts";
 
 export default class createYunukiService {
   private static readonly apiUrl = "http://localhost:3000"; //ruta para conectar con la API
 
-  static async createYunuki(name: string, color: string, breed: string) {
+  static async createYunuki(name: string, breed: string, color: string) {
     const result = await fetch(this.apiUrl + "/yunukis/create", {
       method: "POST",
       headers: {
@@ -12,8 +12,8 @@ export default class createYunukiService {
       },
       body: JSON.stringify({
         name,
-        color,
         breed,
+        color,
       }),
     });
     if (result.status === 201) {

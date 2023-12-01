@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router";
 import { Navigate } from "react-router-dom";
+import { YunukiStage } from "../src/yunuki/screens//yunukiStage";
+import { CreateYunuki } from "../src/yunuki/screens/createYunuki";
 import { Login } from "./auth/screens/login";
 import { PasswordForgotten } from "./auth/screens/password-forgotten";
 import { Register } from "./auth/screens/register";
-import { CreateYunuki } from "./createYunuki";
-import { YunukiStage } from "./yunukiStage";
 
 function App() {
   return (

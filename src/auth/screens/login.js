@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logoYunuki from "../../assets/yunuki-logo.png";
+import AuthService from "../../auth/services/auth.service.ts";
 import { Button } from "../../core/components/button";
 import { Input } from "../../core/components/input";
-import AuthService from "../services/auth.service.ts";
-import YunukiService from "../services/yunuki.service.ts";
+import YunukiService from "../../yunuki/services/yunuki.service.ts";
 
 export function Login() {
   const [values, setValues] = React.useState({

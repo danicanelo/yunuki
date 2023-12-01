@@ -1,25 +1,48 @@
 import React from "react";
-import YunukiService from "./auth/services/yunuki.service.ts";
-import { Card } from "./core/components/card";
-import { Navbar } from "./core/components/navbar";
-import { ProgressBar } from "./core/components/progress-bar";
-import { Yunuki } from "./core/components/yunuki";
-import "./core/components/yunuki.css";
+import { Card } from "../../core/components/card.js";
+import { Navbar } from "../../core/components/navbar.js";
+import { ProgressBar } from "../../core/components/progress-bar.js";
+import "../css/yunuki-sleeping.css";
+import { Yunuki } from "../js/yunuki.js";
+import YunukiService from "../services/yunuki.service.ts";
 
 export function YunukiStage() {
   const [yunuki, setYunuki] = React.useState();
+  const [fetchInterval, setFetchInterval] = React.useState();
+
+  async function feedYunuki() {
+    const feedAction = await YunukiService.feedYunuki();
+    setYunuki(feedAction);
+  }
+
+  async function cleanYunuki() {
+    const cleanAction = await YunukiService.cleanYunuki();
+    setYunuki(cleanAction);
+  }
+
+  async function sleepYunuki() {
+    const sleepAction = await YunukiService.sleepYunuki();
+    setYunuki(sleepAction);
+  }
+
+  const fetchYunukiData = async () => {
+    try {
+      const yunuki = await YunukiService.getYunuki();
+      setYunuki(yunuki);
+    } catch (e) {
+      console.error("Yunuki no encontrado", e);
+    }
+  };
 
   React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const yunuki = await YunukiService.getYunuki();
-        setYunuki(yunuki);
-      } catch (e) {
-        console.error("Yunuki no encontrado", e);
-      }
+    fetchYunukiData();
+    const interval = setInterval(() => {
+      fetchYunukiData();
+    }, 30000);
+    setFetchInterval(interval);
+    return () => {
+      clearInterval(fetchInterval);
     };
-
-    fetchData();
   }, []);
 
   if (!yunuki) {
@@ -53,19 +76,19 @@ export function YunukiStage() {
             <div className="is-flex is-justify-content-center">
               <button
                 className="button is-info mx-5"
-                onClick={() => YunukiService.feedYunuki()}
+                onClick={() => feedYunuki()}
               >
                 Alimentar
               </button>
               <button
                 className="button is-info mx-5"
-                onClick={() => YunukiService.cleanYunuki()}
+                onClick={() => cleanYunuki()}
               >
                 Limpiar
               </button>
               <button
                 className="button is-info mx-5"
-                onClick={() => YunukiService.sleepYunuki()}
+                onClick={() => sleepYunuki()}
               >
                 Dormir
               </button>
