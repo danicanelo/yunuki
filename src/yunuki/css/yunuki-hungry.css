@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 300px; /* Ajustado para darle forma de gota */
+  height: 300px;
   width: 280px;
   background-color: #14debc;
-  border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%; /* Esto dará la forma de gota */
+  border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%;
   position: relative;
   padding: 40px;
   animation: move 5s infinite;
@@ -38,7 +38,7 @@
   border-bottom: 3px solid #000;
   border-radius: 0 0 10px 10px;
   position: absolute;
-  bottom: -20px; /* Ajusta este valor si quieres que las patas sobresalgan más o menos */
+  bottom: -20px;
 }
 
 .leg.left {
@@ -70,15 +70,12 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(
-      50px
-    ); /* Ajusta esta distancia según lo lejos que quieras que se desplace */
+    transform: translateX(50px);
   }
 }
 
 .yunuki {
-  /* ... otros estilos ... */
-  animation: move 5s infinite; /* Ajusta el tiempo si quieres que se mueva más rápido o más lento */
+  animation: move 5s infinite;
 }
 
 @keyframes moveLeg {
@@ -92,6 +89,5 @@
 }
 
 .leg {
-  /* ... otros estilos ... */
-  animation: moveLeg 1s infinite; /* Que las patas se muevan rápido para parecer que camina */
+  animation: moveLeg 1s infinite;
 }

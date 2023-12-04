@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoYunuki from "../../assets/yunuki-logo.png";
 import { Input } from "../../core/components/input";
 import AuthService from "../services/auth.service.ts";
@@ -78,6 +78,11 @@ export function Register() {
           <button type="submit" className="button is-info">
             Registrarse
           </button>
+          <Link to="/login">
+            <div className="has-text-centered">
+              <a>Volver a Inicio</a>
+            </div>
+          </Link>
         </form>
       </div>
     </div>

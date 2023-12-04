@@ -12,7 +12,7 @@ export default class YunukiService {
       },
     });
     if (res.status === 404) {
-      return res;
+      throw new Error("Yunuki no encontrado");
     }
     const yunuki = await res.json();
     return yunuki;

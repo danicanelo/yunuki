@@ -19,11 +19,11 @@ export function Login() {
     try {
       const result = await AuthService.login(values.username, values.password);
       if (result) {
-        const yunuki = await YunukiService.getYunuki(values.username);
-        if (yunuki.status === 404) {
-          navigate("/create-yunuki");
-        } else {
+        try {
+          await YunukiService.getYunuki(values.username);
           navigate("/yunuki");
+        } catch (e) {
+          navigate("/create-yunuki");
         }
       } else {
         alert("Login erróneo");

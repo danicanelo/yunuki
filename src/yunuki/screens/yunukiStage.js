@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "../../core/components/card.js";
 import { Navbar } from "../../core/components/navbar.js";
 import { ProgressBar } from "../../core/components/progress-bar.js";
@@ -9,6 +10,8 @@ import YunukiService from "../services/yunuki.service.ts";
 export function YunukiStage() {
   const [yunuki, setYunuki] = React.useState();
   const [fetchInterval, setFetchInterval] = React.useState();
+
+  const navigate = useNavigate();
 
   async function feedYunuki() {
     const newYunuki = await YunukiService.feedYunuki();
@@ -31,6 +34,7 @@ export function YunukiStage() {
       setYunuki(yunuki);
     } catch (e) {
       console.error("Yunuki no encontrado", e);
+      navigate("/create-yunuki");
     }
   };
 
