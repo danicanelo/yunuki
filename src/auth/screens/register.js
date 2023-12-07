@@ -46,7 +46,7 @@ export function Register() {
   return (
     <div className="container">
       <img className="m-auto is-block p-6" src={logoYunuki} alt="logo Yunuki" />
-      <div className="box mt-6 mx-6">
+      <div className="box mt-6">
         <form onSubmit={handleSubmit}>
           <Input
             minLength={4}

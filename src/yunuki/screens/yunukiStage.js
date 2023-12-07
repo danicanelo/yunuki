@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Card } from "../../core/components/card.js";
 import { Navbar } from "../../core/components/navbar.js";
 import { ProgressBar } from "../../core/components/progress-bar.js";
-import "../css/yunuki-sleeping.css";
+import "../css/yunuki.css";
 import { Yunuki } from "../js/yunuki.js";
 import YunukiService from "../services/yunuki.service.ts";
 
@@ -79,19 +79,19 @@ export function YunukiStage() {
             <Yunuki />
             <div className="is-flex is-justify-content-center">
               <button
-                className="button is-info mx-5"
+                className="button is-info mx-2"
                 onClick={() => feedYunuki()}
               >
                 Alimentar
               </button>
               <button
-                className="button is-info mx-5"
+                className="button is-info mx-2"
                 onClick={() => cleanYunuki()}
               >
                 Limpiar
               </button>
               <button
-                className="button is-info mx-5"
+                className="button is-info mx-2"
                 onClick={() => sleepYunuki()}
               >
                 Dormir

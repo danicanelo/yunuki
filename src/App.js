@@ -5,6 +5,7 @@ import { CreateYunuki } from "../src/yunuki/screens/createYunuki";
 import { Login } from "./auth/screens/login";
 import { PasswordForgotten } from "./auth/screens/password-forgotten";
 import { Register } from "./auth/screens/register";
+import { Cemetery } from "./yunuki/screens/cemetery";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/password-forgotten" element={<PasswordForgotten />} />
           <Route path="/create-yunuki" element={<CreateYunuki />} />
           <Route path="/yunuki" element={<YunukiStage />} />
+          <Route path="/cemetery" element={<Cemetery />} />
           <Route path="*" element={<Navigate replace to="/auth/login" />} />
         </Routes>
       </div>

@@ -47,7 +47,7 @@ export function Login() {
   return (
     <div className="container">
       <img className="m-auto is-block p-6" src={logoYunuki} alt="Yunuki logo" />
-      <div className="box mt-6 mx-6">
+      <div className="box mt-6">
         <form onSubmit={handleSubmit}>
           <Input
             label="Nombre de usuario"

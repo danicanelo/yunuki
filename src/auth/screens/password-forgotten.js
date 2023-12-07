@@ -32,7 +32,7 @@ export function PasswordForgotten() {
           src={logoYunuki}
           alt="logo Yunuki"
         />
-        <div className="box mt-6 mx-6">
+        <div className="box mt-6">
           <form onSubmit={handleSubmit}>
             <Input
               label="Escribe el email con el que te registraste y te enviaremos tu contraseña"

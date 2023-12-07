@@ -64,7 +64,7 @@ export function CreateYunuki() {
       <Navbar />
       <div className="section">
         <div className="container">
-          <div className="box mx-6">
+          <div className="box">
             <p className="title has-text-centered">¡Hola, {username ?? ""}!</p>
             <p className="subtitle has-text-centered">
               Crea tu Yunuki a continuación
