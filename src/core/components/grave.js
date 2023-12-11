@@ -1,9 +1,15 @@
-export function Grave() {
+export function Grave({ name, deadDate, deadCause }) {
   return (
-    <div className="grave my-5">
-      <div className="name">Papafrito</div>
-      <div className="detail dead-date">Fecha de Muerte: 07-12-2023</div>
-      <div className="detail dead-cause">Causa de Muerte: Soledad</div>
+    <div className="grave m-5 column is-narrow-desktop">
+      <div className="name">{name}</div>
+      <div className="detail dead-date">
+        Fecha de Muerte: <br></br>
+        {deadDate}
+      </div>
+      <div className="detail dead-cause">
+        Causa de Muerte: <br></br>
+        {deadCause}
+      </div>
       <div className="rip">R.I.P.</div>
     </div>
   );

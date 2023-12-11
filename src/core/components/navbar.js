@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import logoYunuki from "../../assets/yunuki-logo.png";
 import AuthService from "../../auth/services/auth.service.ts";
 
@@ -49,6 +50,9 @@ export function Navbar() {
           {/* <a className="navbar-item">Home</a>
           <a className="navbar-item">Documentation</a> */}
           <div className="navbar-item">
+            <Link to="/cemetery" className="mr-6">
+              Cementerio de Yunukis
+            </Link>
             <p className="mr-3 has-text-weight-semibold">{username ?? ""}</p>
             <div className="buttons">
               <a className="button is-primary">
