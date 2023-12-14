@@ -25,8 +25,7 @@ export function CreateYunuki() {
 
   const [values, setValues] = React.useState({
     name: "",
-    breed: "",
-    color: "",
+    breed: 0,
   });
 
   const navigate = useNavigate();
@@ -36,8 +35,7 @@ export function CreateYunuki() {
     try {
       const result = await createYunukiService.createYunuki(
         values.name,
-        values.breed,
-        values.color
+        values.breed
       );
       if (result) {
         navigate("/yunuki");
@@ -81,20 +79,13 @@ export function CreateYunuki() {
               <Select
                 label="Tipo de Yunuki"
                 id="breed"
-                values={["Yanaka", "Yonoko", "Yiniki"]}
+                values={[1, 2, 3]}
                 onChange={handleChange}
                 placeholder="Selecciona un tipo de Yunuki"
               />
               <YunukiTypeMsg
                 type="Yonoko"
                 msg="Los Yonoko son una raza de Yunuki sunt voluptate eiusmod ut aute aute. Irure minim eiusmod non eiusmod et voluptate cillum do irure officia non fugiat mollit. Cillum quis nulla proident ea do cillum. Sint qui aliquip qui culpa irure proident. Id est Lorem ex fugiat labore non anim incididunt commodo tempor reprehenderit est. Culpa amet eu sunt et velit dolore laborum ullamco in tempor elit. Exercitation ipsum mollit irure eu ut eiusmod cupidatat."
-              />
-              <Select
-                label="¿De qué color quieres que sea tu Yunuki?"
-                id="color"
-                values={["Verde", "Rojo", "Azul", "Morado", "Amarillo"]}
-                onChange={handleChange}
-                placeholder="Selecciona un color para tu Yunuki"
               />
               <button type="submit" className="button is-success">
                 ¡Crear Yunuki!
