@@ -13,6 +13,12 @@ export function CreateYunuki() {
       try {
         const user = await AuthService.getUser();
         setUsername(user.username);
+        const aliveYunuki = user.yunukis.find(function yunukiAlive(yunuki) {
+          return yunuki.dead === null;
+        });
+        if (aliveYunuki) {
+          navigate("/yunuki");
+        }
       } catch (e) {
         console.error("Usuario no encontrado", e);
       }

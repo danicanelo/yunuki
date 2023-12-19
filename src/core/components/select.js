@@ -6,7 +6,7 @@ export function Select({ label, id, values, onChange, placeholder }) {
       </label>
       <div className="select">
         <select id={id} name={id} onChange={onChange} placeholder={placeholder}>
-          <option key={placeholder} disabled selected>
+          <option key={placeholder} disabled>
             {placeholder}
           </option>
           {values.map((value, index) => (
