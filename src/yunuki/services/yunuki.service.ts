@@ -18,6 +18,21 @@ export default class YunukiService {
     return yunuki;
   }
 
+  static async getDeadYunukis() {
+    const res = await fetch(this.apiUrl + "/yunukis/get-dead", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + AuthService.getJwt(),
+        "Content-Type": "application/json",
+      },
+    });
+    if (res.status === 404) {
+      throw new Error("Ningún Yunuki fallecido encontrado");
+    }
+    const deadYunuki = await res.json();
+    return deadYunuki;
+  }
+
   static async feedYunuki() {
     const res = await fetch(this.apiUrl + "/yunukis/feed", {
       method: "PUT",

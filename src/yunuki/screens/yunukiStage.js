@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Card } from "../../core/components/card.js";
 import { Navbar } from "../../core/components/navbar.js";
 import { ProgressBar } from "../../core/components/progress-bar.js";
-import "../css/yunuki.css";
 import { Yunuki } from "../../core/components/yunuki.js";
+import "../css/yunuki-tired.css";
 import YunukiService from "../services/yunuki.service.ts";
 
 export function YunukiStage() {
@@ -38,6 +38,7 @@ export function YunukiStage() {
     }
   };
 
+  // ULTRAPEND
   React.useEffect(() => {
     fetchYunukiData();
     const interval = setInterval(() => {

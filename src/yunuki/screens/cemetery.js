@@ -3,15 +3,15 @@ import { Card } from "../../core/components/card";
 import { Grave } from "../../core/components/grave";
 import { Navbar } from "../../core/components/navbar";
 import "../css/grave.css";
-import DeadYunukiService from "../services/deadYunuki.service.ts";
+import YunukiService from "../services/yunuki.service.ts";
 
 export function Cemetery() {
-  const [deadYunukis, setDeadYunukis] = React.useState("");
+  const [deadYunukis, setDeadYunukis] = React.useState([]);
 
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const deadYunukis = await DeadYunukiService.getDeadYunukis();
+        const deadYunukis = await YunukiService.getDeadYunukis();
         setDeadYunukis(deadYunukis);
       } catch (e) {
         console.error("Ningún Yunuki fallecido encontrado", e);
@@ -20,8 +20,6 @@ export function Cemetery() {
 
     fetchData();
   }, []);
-
-  console.log(deadYunukis);
 
   return (
     <div>
@@ -35,9 +33,13 @@ export function Cemetery() {
             />
           </div>
           <div className="columns column is-flex-wrap-wrap is-justify-content-center">
-            <Grave name="Dionisio" deadDate="27-09-2023" deadCause="Hambre" />
-            <Grave name="Trayectorio" deadDate="27-11-2023" deadCause="Sueño" />
-            <Grave name="Segundero" deadDate="06-09-2023" deadCause="Sueño" />
+            {deadYunukis.map((deadYunuki) => (
+              <Grave
+                name={deadYunuki.name}
+                birthDate={deadYunuki.birth}
+                deadDate={deadYunuki.dead}
+              />
+            ))}
           </div>
         </div>
       </div>
