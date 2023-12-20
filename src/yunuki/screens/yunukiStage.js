@@ -4,7 +4,7 @@ import { Card } from "../../core/components/card.js";
 import { Navbar } from "../../core/components/navbar.js";
 import { ProgressBar } from "../../core/components/progress-bar.js";
 import { Yunuki } from "../../core/components/yunuki.js";
-import "../css/yunuki-tired.css";
+import "../css/yunuki.css";
 import YunukiService from "../services/yunuki.service.ts";
 
 export function YunukiStage() {

@@ -49,7 +49,9 @@ export default class AuthService {
         "Content-Type": "application/json",
       },
     });
-
+    if(result.status === 401){
+      throw new Error();
+    }
     return await result.json();
   }
 
@@ -61,7 +63,7 @@ export default class AuthService {
     localStorage.setItem(this.jwtKey, jwt);
   }
 
-  private static deleteJwt(jwt: string) {
+  static deleteJwt(jwt: string) {
     localStorage.removeItem(this.jwtKey);
   }
 }
