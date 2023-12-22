@@ -6,7 +6,6 @@ import logoYunuki from "../../assets/yunuki-logo.png";
 import AuthService from "../../auth/services/auth.service.ts";
 
 export function Navbar() {
-
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -17,8 +16,8 @@ export function Navbar() {
         setUsername(user.username);
         console.log(location);
       } catch (e) {
-        console.error('Usuario no encontrado', e);
-        navigate('/auth/login');
+        console.error("Usuario no encontrado", e);
+        navigate("/auth/login");
       }
     };
     fetchData();
@@ -26,7 +25,7 @@ export function Navbar() {
 
   const [username, setUsername] = useState("");
 
-  function logout(){
+  function logout() {
     AuthService.deleteJwt();
     navigate("/auth/login");
   }
@@ -61,23 +60,22 @@ export function Navbar() {
           {/* <a className="navbar-item">Home</a>
           <a className="navbar-item">Documentation</a> */}
           <div className="navbar-item">
-            {location.pathname !== '/yunuki' &&
+            {location.pathname !== "/yunuki" && (
               <Link to="/yunuki" className="mr-6">
-              Volver a Yunuki
-            </Link>
-            }
-            {location.pathname !== '/cemetery' &&
+                Volver a Yunuki
+              </Link>
+            )}
+            {location.pathname !== "/cemetery" && (
               <Link to="/cemetery" className="mr-6">
-              Ir al Cementerio
-            </Link>
-            }
-            
+                Ir al Cementerio
+              </Link>
+            )}
+
             <p className="mr-3 has-text-weight-semibold">{username ?? ""}</p>
             <div className="buttons">
-              <a className="button is-primary">
-                <strong>Cambiar de usuario</strong>
+              <a className="button is-info" onClick={() => logout()}>
+                Cerrar Sesión
               </a>
-              <a className="button is-light" onClick={() => logout()}>Cerrar Sesión</a>
             </div>
           </div>
         </div>
