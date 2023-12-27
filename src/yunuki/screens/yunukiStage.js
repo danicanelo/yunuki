@@ -4,7 +4,7 @@ import { Card } from "../../core/components/card.js";
 import { Navbar } from "../../core/components/navbar.js";
 import { ProgressBar } from "../../core/components/progress-bar.js";
 import { Yunuki } from "../../core/components/yunuki.js";
-import "../css/yunuki.css";
+import "../css/yunuki.scss";
 import YunukiService from "../services/yunuki.service.ts";
 
 export function YunukiStage() {
@@ -44,6 +44,7 @@ export function YunukiStage() {
     const interval = setInterval(() => {
       fetchYunukiData();
     }, 30000);
+    // Usar para comprobar fecha actual y restar a fecha de nacimiento para muerte natural
     setFetchInterval(interval);
     return () => {
       clearInterval(fetchInterval);
@@ -65,7 +66,10 @@ export function YunukiStage() {
       <div className="hero">
         <div className="columns">
           <div className="fondo2 column is-one-quarter p-6">
-            <p className="title">{yunuki.name ?? ""}</p>
+            <div className="box">
+              <p className="title">{yunuki.name ?? ""}</p>
+              <p>Raza: {yunuki.breed.name ?? ""}</p>
+            </div>
             <div>
               <ProgressBar label="Hambre" value={yunuki.hunger} />
               <ProgressBar label="Suciedad" value={yunuki.dirt} />
@@ -77,7 +81,7 @@ export function YunukiStage() {
             />
           </div>
           <div className="fondo1 is-fullheight column hero is-flex-direction-column is-justify-content-space-around">
-            <Yunuki />
+            <Yunuki yunuki={yunuki} />
             <div className="is-flex is-justify-content-center">
               <button
                 className="button is-info mx-2"
