@@ -62,7 +62,7 @@ export function Navbar() {
           <div className="navbar-item">
             {location.pathname !== "/yunuki" && (
               <Link to="/yunuki" className="mr-6">
-                Volver a Yunuki
+                Volver a tu Yunuki
               </Link>
             )}
             {location.pathname !== "/cemetery" && (

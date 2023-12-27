@@ -15,6 +15,7 @@
   width: 25px;
   background-color: #000;
   border-radius: 50%;
+  animation: blink 3s infinite;
 }
 
 .mouth {
@@ -60,10 +61,6 @@
   }
 }
 
-.eye {
-  animation: blink 3s infinite;
-}
-
 @keyframes move {
   0%,
   100% {
@@ -72,10 +69,6 @@
   50% {
     transform: translateX(50px);
   }
-}
-
-.yunuki {
-  animation: move 6s infinite;
 }
 
 @keyframes moveLeg {

@@ -29,7 +29,7 @@ export function Cemetery() {
           <div className="column is-one-third">
             <Card
               title="Cementerio de Yunukis"
-              content="Este es tu cementerio de Yunukis. Anim dolore officia excepteur exercitation deserunt deserunt consectetur non mollit laboris ullamco. Laborum consequat aliquip consectetur irure ea. Nisi laboris pariatur deserunt tempor laborum nostrud in pariatur ex nisi commodo."
+              content="Este es tu cementerio de Yunukis. Aquí podrás visitar las tumbas de tus yunukis fallecidos."
             />
           </div>
           <div className="columns column is-flex-wrap-wrap is-justify-content-center">

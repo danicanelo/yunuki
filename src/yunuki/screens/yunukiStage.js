@@ -4,7 +4,7 @@ import { Card } from "../../core/components/card.js";
 import { Navbar } from "../../core/components/navbar.js";
 import { ProgressBar } from "../../core/components/progress-bar.js";
 import { Yunuki } from "../../core/components/yunuki.js";
-import "../css/yunuki.scss";
+import "../css/animations.css";
 import YunukiService from "../services/yunuki.service.ts";
 
 export function YunukiStage() {
@@ -77,7 +77,7 @@ export function YunukiStage() {
             </div>
             <Card
               title="¿Cómo funciona?"
-              content="Quis sint sunt velit Lorem ut amet."
+              content="Las barras muestran el nivel de hambre, suciedad y sueño de tu yunuki. Si alguna llega a su tope tu yunuki fallecerá ¡Trata de no olvidarte de sus necesidades!"
             />
           </div>
           <div className="fondo1 is-fullheight column hero is-flex-direction-column is-justify-content-space-around">

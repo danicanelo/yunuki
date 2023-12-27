@@ -1,55 +1,3 @@
-.small-yunuki {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 200px;
-  width: 180px;
-  background-color: #14debc;
-  border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%;
-  position: relative;
-  padding: 40px;
-  animation: move 5s infinite;
-}
-
-.tired-small-yunuki {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 200px;
-  width: 180px;
-  background-color: #14debc;
-  border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%;
-  position: relative;
-  padding: 40px;
-  animation: tired-move 10s infinite;
-}
-
-.mid-yunuki {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 250px;
-  width: 230px;
-  background-color: #14debc;
-  border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%;
-  position: relative;
-  padding: 40px;
-  animation: move 5s infinite;
-}
-
-.tired-mid-yunuki {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 250px;
-  width: 230px;
-  background-color: #14debc;
-  border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%;
-  position: relative;
-  padding: 40px;
-  animation: tired-move 10s infinite;
-}
-
 .yunuki {
   display: flex;
   justify-content: space-between;
@@ -63,17 +11,14 @@
   animation: move 5s infinite;
 }
 
-.tired-yunuki {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 300px;
-  width: 280px;
-  background-color: #14debc;
-  border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%;
-  position: relative;
-  padding: 40px;
-  animation: tired-move 10s infinite;
+.small-yunuki {
+  height: 200px;
+  width: 180px;
+}
+
+.mid-yunuki {
+  height: 250px;
+  width: 230px;
 }
 
 .eye {
@@ -84,8 +29,6 @@
 }
 
 .tired-eye {
-  width: 25px;
-  background-color: #000;
   border-radius: 0 0 50% 50%;
   position: relative;
   bottom: -8%;
@@ -94,7 +37,6 @@
 
 .sleeping-eye {
   width: 40px;
-  background-color: #000;
   border-radius: 0 0 50% 50%;
   position: relative;
   bottom: -5%;
@@ -117,28 +59,17 @@
 
 .tired-mouth {
   width: 10px;
-  height: 20px;
   border: 3px solid #000;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  position: absolute;
   bottom: 20%;
   left: 50%;
-  transform: translateX(-50%);
 }
 
 .sleeping-mouth {
   width: 30px;
   border: 3px solid #000;
   border-radius: 0 0 50% 50%;
-  border-top: none;
-  border-left: none;
-  border-right: none;
   position: absolute;
   bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
   animation: breath 5s infinite;
 }
 
@@ -146,13 +77,8 @@
   width: 70px;
   border: 50px solid #000;
   border-radius: 50% 50% 30% 30%;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  position: absolute;
   bottom: 15%;
   left: 50%;
-  transform: translateX(-50%);
 }
 
 .leg {
@@ -167,23 +93,10 @@
 }
 
 .tired-leg {
-  width: 20px;
-  height: 60px;
-  background-color: #14debc;
-  border-bottom: 3px solid #000;
-  border-radius: 0 0 10px 10px;
-  position: absolute;
-  bottom: -20px;
   animation: moveLeg 6s infinite;
 }
 
 .sleeping-leg {
-  width: 20px;
-  height: 60px;
-  background-color: #14debc;
-  border-bottom: 3px solid #000;
-  border-radius: 0 0 10px 10px;
-  position: absolute;
   bottom: -5px;
 }
 
@@ -270,11 +183,37 @@
   }
 }
 
+.tired {
+  .yunuki {
+    animation: tired-move 10s infinite;
+  }
+}
+
 .dirt {
   .small-yunuki,
   .mid-yunuki,
   .yunuki,
   .leg {
     background-color: #0c6e5e;
+  }
+}
+
+.yonoko {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  width: 280px;
+  background-color: #dd83ce;
+  border-radius: 70% 70% 60% 60%/ 50% 50% 60% 60%;
+  position: relative;
+  padding: 40px;
+  animation: move 5s infinite;
+}
+
+.yiniki {
+  .yunuki {
+    background-color: #dbda7b;
+    border-radius: 50% 50% 50% 50%/ 20% 20% 60% 60%;
   }
 }

@@ -8,7 +8,7 @@
   border-radius: 50% 50% 50% 50%/ 60% 60% 40% 40%;
   position: relative;
   padding: 40px;
-  animation: move 5s infinite;
+  animation: move 10s infinite;
 }
 
 .eye {
@@ -17,6 +17,7 @@
   border-radius: 0 0 50% 50%;
   position: relative;
   bottom: -8%;
+  animation: blink 5s infinite;
 }
 
 .mouth {
@@ -61,10 +62,6 @@
   }
 }
 
-.eye {
-  animation: blink 5s infinite;
-}
-
 @keyframes move {
   0%,
   100% {
@@ -73,10 +70,6 @@
   50% {
     transform: translateX(20px);
   }
-}
-
-.yunuki {
-  animation: move 10s infinite;
 }
 
 @keyframes moveLeg {

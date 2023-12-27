@@ -19,14 +19,14 @@
 
 .mouth {
   width: 120px;
-  height: 50px;
-  border: 50px solid #000;
+  height: 20px;
+  border: 2px solid #000;
   border-top: none;
   border-left: none;
   border-right: none;
   border-radius: 0 0 50px 50px;
   position: absolute;
-  bottom: 15%;
+  bottom: 25%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -75,7 +75,7 @@
 }
 
 .yunuki {
-  animation: move 4s infinite;
+  animation: move 6s infinite;
 }
 
 @keyframes moveLeg {
@@ -89,5 +89,5 @@
 }
 
 .leg {
-  animation: moveLeg 0.4s infinite;
+  animation: moveLeg 0.5s infinite;
 }
