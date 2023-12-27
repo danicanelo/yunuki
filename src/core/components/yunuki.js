@@ -14,12 +14,12 @@ export function Yunuki({ yunuki }) {
   function getAnimation(clases) {}
 
   return (
-    <div className="yunuki mx-auto">
-      <div className="eye left"></div>
-      <div className="eye right"></div>
-      <div className="mouth"></div>
-      <div className="leg left"></div>
-      <div className="leg right"></div>
+    <div className="yunuki tired mx-auto">
+      <div className="eye sleeping-eye"></div>
+      <div className="eye sleeping-eye"></div>
+      <div className="mouth sleeping-mouth"></div>
+      <div className="leg sleeping-leg left"></div>
+      <div className="leg sleeping-leg right"></div>
     </div>
   );
 }

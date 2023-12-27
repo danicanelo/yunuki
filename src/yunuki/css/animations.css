@@ -143,7 +143,7 @@
 }
 
 .hungry-mouth {
-  width: 70px;
+  width: 65px;
   border: 50px solid #000;
   border-radius: 50% 50% 30% 30%;
   border-top: none;
@@ -187,11 +187,11 @@
   bottom: -5px;
 }
 
-.leg.left {
+.left {
   left: 20%;
 }
 
-.leg.right {
+.right {
   right: 20%;
 }
 
@@ -270,11 +270,7 @@
   }
 }
 
-.dirt {
-  .small-yunuki,
-  .mid-yunuki,
-  .yunuki,
-  .leg {
-    background-color: #0c6e5e;
-  }
+.dirt,
+.dirt .leg {
+  background-color: #0c6e5e;
 }

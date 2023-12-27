@@ -59,14 +59,16 @@
 
 .tired-mouth {
   width: 10px;
-  border: 3px solid #000;
+  height: 1px;
+  border: 1px solid #000;
+  border-radius: 0 0 0 0;
   bottom: 20%;
-  left: 50%;
 }
 
 .sleeping-mouth {
   width: 30px;
-  border: 3px solid #000;
+  height: 1px;
+  border: 1px solid #000;
   border-radius: 0 0 50% 50%;
   position: absolute;
   bottom: 20%;
@@ -97,14 +99,14 @@
 }
 
 .sleeping-leg {
-  bottom: -5px;
+  animation: moveLeg 20s infinite;
 }
 
-.leg.left {
+.left {
   left: 20%;
 }
 
-.leg.right {
+.right {
   right: 20%;
 }
 
@@ -184,36 +186,22 @@
 }
 
 .tired {
-  .yunuki {
-    animation: tired-move 10s infinite;
-  }
+  animation: tired-move 10s infinite;
 }
 
-.dirt {
-  .small-yunuki,
-  .mid-yunuki,
-  .yunuki,
-  .leg {
-    background-color: #0c6e5e;
-  }
+.dirt,
+.dirt .leg {
+  background-color: #0c6e5e;
 }
 
-.yonoko {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 300px;
-  width: 280px;
+.yonoko,
+.yonoko .leg {
   background-color: #dd83ce;
   border-radius: 70% 70% 60% 60%/ 50% 50% 60% 60%;
-  position: relative;
-  padding: 40px;
-  animation: move 5s infinite;
 }
 
-.yiniki {
-  .yunuki {
-    background-color: #dbda7b;
-    border-radius: 50% 50% 50% 50%/ 20% 20% 60% 60%;
-  }
+.yiniki,
+.yiniki .leg {
+  background-color: #dbda7b;
+  border-radius: 50% 50% 50% 50%/ 20% 20% 60% 60%;
 }
