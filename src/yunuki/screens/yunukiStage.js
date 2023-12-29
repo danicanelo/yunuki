@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "../../core/components/card.js";
+import Modal from "../../core/components/modal.js";
 import { Navbar } from "../../core/components/navbar.js";
 import { ProgressBar } from "../../core/components/progress-bar.js";
 import { Yunuki } from "../../core/components/yunuki.js";
@@ -108,6 +109,7 @@ export function YunukiStage() {
           <div className="fondo1 is-fullheight column hero is-flex-direction-column is-justify-content-space-evenly">
             <Yunuki yunuki={yunuki} />
             <div className="is-flex is-justify-content-center">
+              <Modal />
               <button
                 className="button is-info mx-2"
                 onClick={() => feedYunuki()}
