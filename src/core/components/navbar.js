@@ -21,7 +21,7 @@ export function Navbar() {
       }
     };
     fetchData();
-  }, []); //revisar por qué el array
+  }, []);
 
   const [username, setUsername] = useState("");
 
@@ -60,12 +60,12 @@ export function Navbar() {
           {/* <a className="navbar-item">Home</a>
           <a className="navbar-item">Documentation</a> */}
           <div className="navbar-item">
-            {location.pathname !== "/yunuki" && (
+            {location.pathname === "/cemetery" && (
               <Link to="/yunuki" className="mr-6">
                 Volver a tu Yunuki
               </Link>
             )}
-            {location.pathname !== "/cemetery" && (
+            {location.pathname === "/yunuki" && (
               <Link to="/cemetery" className="mr-6">
                 Ir al Cementerio
               </Link>

@@ -1,25 +1,17 @@
 export function Yunuki({ yunuki }) {
-  function isHungry() {
-    return yunuki.hungry > 5;
-  }
+  const isHungry = () => yunuki.hungry > 5;
 
-  function isDirty() {
-    return yunuki.dirt > 5;
-  }
+  const isDirty = () => yunuki.dirt > 5;
 
-  function isTired() {
-    return yunuki.tiredness > 5;
-  }
-
-  function getAnimation(clases) {}
+  const isTired = () => yunuki.tiredness > 5;
 
   return (
-    <div className="yunuki tired mx-auto">
-      <div className="eye sleeping-eye"></div>
-      <div className="eye sleeping-eye"></div>
-      <div className="mouth sleeping-mouth"></div>
-      <div className="leg sleeping-leg left"></div>
-      <div className="leg sleeping-leg right"></div>
+    <div className="yunuki mx-auto">
+      <div className="eye"></div>
+      <div className="eye"></div>
+      <div className="mouth"></div>
+      <div className="leg left"></div>
+      <div className="leg right"></div>
     </div>
   );
 }

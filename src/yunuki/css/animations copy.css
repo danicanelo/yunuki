@@ -189,11 +189,6 @@
   animation: tired-move 10s infinite;
 }
 
-.dirt,
-.dirt .leg {
-  background-color: #0c6e5e;
-}
-
 .yonoko,
 .yonoko .leg {
   background-color: #dd83ce;
@@ -204,4 +199,9 @@
 .yiniki .leg {
   background-color: #dbda7b;
   border-radius: 50% 50% 50% 50%/ 20% 20% 60% 60%;
+}
+
+.dirt,
+.dirt .leg {
+  background-color: #525252;
 }
