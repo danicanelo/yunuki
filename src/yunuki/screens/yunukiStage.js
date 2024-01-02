@@ -103,7 +103,7 @@ export function YunukiStage() {
             </div>
             <Card
               title="¿Cómo funciona?"
-              content="Las barras muestran el nivel de hambre, suciedad y sueño de tu yunuki. Si alguna llega a su tope tu yunuki fallecerá ¡Trata de no olvidarte de sus necesidades!"
+              content={`Las barras muestran el nivel de hambre, suciedad y sueño de ${yunuki.name}. Si alguna llega a su tope fallecerá ¡Trata de no olvidarte de sus necesidades!`}
             />
           </div>
           <div className="fondo1 is-fullheight column hero is-flex-direction-column is-justify-content-space-evenly">

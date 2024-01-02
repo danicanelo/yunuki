@@ -71,11 +71,6 @@ export function Login() {
           </button>
         </form>
       </div>
-      <Link to="/password-forgotten">
-        <div className="has-text-centered">
-          <a>¿Olvidaste tu contraseña?</a>
-        </div>
-      </Link>
       <div className="mt-6 is-flex is-justify-content-center is-align-items-center">
         <p className="mr-4">¿Aún no tienes cuenta?</p>
         <Link to="/users/register">
