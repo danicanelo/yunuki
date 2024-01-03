@@ -58,7 +58,7 @@ export function YunukiStage() {
     fetchYunukiData();
     const interval = setInterval(function () {
       fetchYunukiData();
-    }, 30000);
+    }, 10000);
     setFetchInterval(interval);
     return function () {
       clearInterval(fetchInterval);

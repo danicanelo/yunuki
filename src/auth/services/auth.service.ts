@@ -37,7 +37,7 @@ export default class AuthService {
     if (result.status === 201) {
       return true;
     } else {
-      return false;
+      return result;
     }
   }
 
