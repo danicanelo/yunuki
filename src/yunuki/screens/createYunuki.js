@@ -4,7 +4,6 @@ import AuthService from "../../auth/services/auth.service.ts";
 import { Input } from "../../core/components/input.js";
 import { YunukiTypeMsg } from "../../core/components/message.js";
 import { Navbar } from "../../core/components/navbar.js";
-import { Select } from "../../core/components/select.js";
 import createYunukiService from "../services/createYunuki.service.ts";
 
 export function CreateYunuki() {
@@ -12,6 +11,8 @@ export function CreateYunuki() {
     const fetchData = async () => {
       try {
         const user = await AuthService.getUser();
+        const breeds = await createYunukiService.getBreeds();
+        setBreeds(breeds);
         setUsername(user.username);
         const aliveYunuki = user.yunukis.find(function yunukiAlive(yunuki) {
           return yunuki.dead === null;
@@ -29,7 +30,11 @@ export function CreateYunuki() {
 
   const [username, setUsername] = React.useState("");
 
-  const [values, setValues] = React.useState({
+  const [breeds, setBreeds] = React.useState([]);
+
+  const [selectedBreed, setSelectedBreed] = React.useState("");
+
+  const [createValues, setCreateValues] = React.useState({
     name: "",
     breed: 0,
   });
@@ -40,8 +45,8 @@ export function CreateYunuki() {
     evt.preventDefault();
     try {
       const result = await createYunukiService.createYunuki(
-        values.name,
-        values.breed
+        createValues.name,
+        createValues.breed
       );
       if (result) {
         navigate("/yunuki");
@@ -57,10 +62,12 @@ export function CreateYunuki() {
     const { target } = evt;
     const { name, value } = target;
     const newValues = {
-      ...values,
+      ...createValues,
       [name]: value,
     };
-    setValues(newValues);
+    setCreateValues(newValues);
+    console.log(newValues.breed);
+    setSelectedBreed(newValues.breed);
   }
 
   return (
@@ -76,21 +83,26 @@ export function CreateYunuki() {
             <form onSubmit={handleSubmit}>
               <Input
                 label="Nombre para tu Yunuki"
-                id="name"
+                id="yunukiname"
                 type="text"
                 placeholder="Introduce un nombre"
-                value={values.name}
+                value={createValues.yunukiname}
                 onChange={handleChange}
               />
-              <Select
-                label="Tipo de Yunuki"
-                id="breed"
-                values={[1, 2, 3]}
-                onChange={handleChange}
-                placeholder="Selecciona un tipo de Yunuki"
-              />
+              <div className="field">
+                <label className="label" htmlFor="breed">
+                 Tipo de yunuki
+                </label>
+                <div className="select">
+                  <select id="breed" name="breed" onChange={handleChange}>
+                    {breeds.map((breed, i) => (
+                      <option key={i}>{breed.name}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
               <YunukiTypeMsg
-                type="Yonoko"
+                type={selectedBreed}
                 msg="Los Yonoko son una raza de Yunuki sunt voluptate eiusmod ut aute aute. Irure minim eiusmod non eiusmod et voluptate cillum do irure officia non fugiat mollit. Cillum quis nulla proident ea do cillum. Sint qui aliquip qui culpa irure proident. Id est Lorem ex fugiat labore non anim incididunt commodo tempor reprehenderit est. Culpa amet eu sunt et velit dolore laborum ullamco in tempor elit. Exercitation ipsum mollit irure eu ut eiusmod cupidatat."
               />
               <button type="submit" className="button is-success">

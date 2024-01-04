@@ -9,8 +9,8 @@ export function Select({ label, id, values, onChange, placeholder }) {
           <option key={placeholder} disabled>
             {placeholder}
           </option>
-          {values.map((value, index) => (
-            <option key={index}>{value}</option>
+          {values.map((value, i) => (
+            <option key={i}>{value}</option>
           ))}
           ;
         </select>

@@ -21,4 +21,15 @@ export default class createYunukiService {
       return false;
     }
   }
+
+  static async getBreeds(){
+    const result = await fetch(this.apiUrl + "/breed/get", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + AuthService.getJwt(),
+        "Content-Type": "application/json",
+      },
+    });
+   return await result.json();
+  }
 }

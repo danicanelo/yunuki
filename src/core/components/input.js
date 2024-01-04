@@ -9,7 +9,7 @@ export function Input({
 }) {
   return (
     <div className="field">
-      <label className="label" htmlFor="{id}">
+      <label className="label" htmlFor={id}>
         {label}
       </label>
       <div className="control">
