@@ -4,6 +4,9 @@ import logoYunuki from "../../assets/yunuki-logo.png";
 import { Input } from "../../core/components/input";
 import AuthService from "../services/auth.service.ts";
 
+// La lógica general de las páginas de formulario se explica en detalle en el fichero login.js, de modo que no repetiremos información detallada innecesaria de aquí en adelante. Para cualquier consulta, acudir a login.js o contactar directamente.
+
+//Hacemos uso de useState para disponer las variables donde se almacenarán los valores de los campos del formulario según vayan cambiando.
 export function Register() {
   const [values, setValues] = React.useState({
     username: "",
@@ -28,7 +31,7 @@ export function Register() {
         alert("Introduce datos adecuados");
       }
     } catch (e) {
-      console.log("patataerror", e);
+      console.log("Hay algún problema con el servidor", e);
     }
   }
 
@@ -48,8 +51,9 @@ export function Register() {
       <img className="m-auto is-block p-6" src={logoYunuki} alt="logo Yunuki" />
       <div className="box mt-6">
         <form onSubmit={handleSubmit}>
+          {/* Los únicos cambios que el formulario de registro tiene respecto del de login es la restricción del número de caracteres a la hora de introducir los valores. El mínimo de caracteres que debe contener un nombre es 3, mientras que la contraseña debe tener un mínimo de 6. Email no cuenta con ningún mínimo */}
           <Input
-            minLength={4}
+            minLength={3}
             label="Nombre de usuario"
             id="username"
             type="text"
@@ -58,7 +62,6 @@ export function Register() {
             onChange={handleChange}
           />
           <Input
-            minLength={1}
             label="Email"
             id="email"
             type="email"
