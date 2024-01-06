@@ -90,7 +90,7 @@ export function YunukiStage() {
       <Navbar />
       <div className="hero">
         <div className="columns">
-          <div className="fondo2 column is-one-quarter p-6">
+          <div className="aside-background column is-one-quarter p-6">
             <div className="box">
               <p className="title">{yunuki.name ?? ""}</p>
               <p>Raza: {yunuki.breed.name ?? ""}</p>
@@ -105,7 +105,7 @@ export function YunukiStage() {
               content={`Las barras muestran el nivel de hambre, suciedad y sueño de ${yunuki.name}. Si alguna llega a su tope fallecerá ¡Trata de no olvidarte de sus necesidades!`}
             />
           </div>
-          <div className="fondo1 is-fullheight column hero is-flex-direction-column is-justify-content-space-evenly">
+          <div className="is-fullheight column hero is-flex-direction-column is-justify-content-space-evenly">
             <Yunuki yunuki={yunuki} />
             <div className="is-flex is-justify-content-center">
               <button
