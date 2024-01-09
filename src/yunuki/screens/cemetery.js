@@ -14,7 +14,7 @@ export function Cemetery() {
         const deadYunukis = await YunukiService.getDeadYunukis();
         setDeadYunukis(deadYunukis);
       } catch (e) {
-        console.error("Ningún Yunuki fallecido encontrado", e);
+        console.error("Ningún yunuki fallecido encontrado", e);
       }
     };
 

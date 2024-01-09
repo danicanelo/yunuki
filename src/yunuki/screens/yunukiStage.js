@@ -18,11 +18,6 @@ export function YunukiStage() {
     setYunuki(newYunuki);
   }
 
-  /*const feedYunuki = async () => {
-    const newYunuki = await YunukiService.feedYunuki();
-    setYunuki(newYunuki);
-  };*/
-
   async function cleanYunuki() {
     const newYunuki = await YunukiService.cleanYunuki();
     setYunuki(newYunuki);
@@ -43,16 +38,6 @@ export function YunukiStage() {
     }
   }
 
-  /*const fetchYunukiData = async () => {
-    try {
-      const yunuki = await YunukiService.getYunuki();
-      setYunuki(yunuki);
-    } catch (e) {
-      console.error("Yunuki no encontrado", e);
-      navigate("/create-yunuki");
-    }
-  };*/
-
   React.useEffect(function () {
     fetchYunukiData();
     const interval = setInterval(function () {
@@ -63,18 +48,6 @@ export function YunukiStage() {
       clearInterval(fetchInterval);
     };
   }, []);
-
-  // ULTRAPEND
-  /*React.useEffect(() => {
-    fetchYunukiData();
-    const interval = setInterval(() => {
-      fetchYunukiData();
-    }, 30000);
-    setFetchInterval(interval);
-    return () => {
-      clearInterval(fetchInterval);
-    };
-  }, []);*/
 
   if (!yunuki) {
     return (

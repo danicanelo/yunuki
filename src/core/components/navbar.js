@@ -30,6 +30,14 @@ export function Navbar() {
     navigate("/auth/login");
   }
 
+  // Tratando de desplegar menu burger
+
+  const [isActive, setIsActive] = useState(false);
+
+  function handleToggle() {
+    setIsActive(!isActive);
+  }
+
   return (
     <nav
       className="navbar is-white has-shadow"
@@ -46,19 +54,18 @@ export function Navbar() {
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
+          onClick={handleToggle}
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
-
-      <div id="navbarBasicExample" className="navbar-menu">
+      {console.log(isActive)}
+      <div id="navbarBasicExample" className={"navbar-menu"}>
         <div className="navbar-start"></div>
 
         <div className="navbar-end">
-          {/* <a className="navbar-item">Home</a>
-          <a className="navbar-item">Documentation</a> */}
           <div className="navbar-item">
             {location.pathname === "/cemetery" && (
               <Link to="/yunuki" className="mr-6">

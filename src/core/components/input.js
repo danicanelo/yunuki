@@ -1,3 +1,5 @@
+// En este componente creamos un input para la recepción de datos desde formularios. Recibe una label a modo de "título", un identificador que nos sirve tanto para el id como para el name, un valor que será el valor que contendrá el input, un placeholder, las instrucciones que debe ejecutar al ser modificado y una longitud mínima
+
 export function Input({
   label,
   id,

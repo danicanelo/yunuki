@@ -67,14 +67,17 @@ export default class AuthService {
     return await result.json();
   }
 
+  // Método para obtener el JWT almacenado en el navegador
   static getJwt() {
     return localStorage.getItem(this.jwtKey);
   }
 
+  // Método para almacenar en el navegador el JWT retornado por el servidor, utiliza ese JWT + el valor establecido en jwtKey que actuará como nombre de la clave en el par clave-valor resultante
   private static saveJwt(jwt: string) {
     localStorage.setItem(this.jwtKey, jwt);
   }
 
+  // Método para eliminar un JWT del navegador, se utiliza en el momento en el que un usuario clica en Cerrar Sesión
   static deleteJwt(jwt: string) {
     localStorage.removeItem(this.jwtKey);
   }
