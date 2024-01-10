@@ -7,7 +7,7 @@ import YunukiService from "../../yunuki/services/yunuki.service.ts";
 
 // Función principal que renderizará el componente Login
 export function Login() {
-  // Creamos una constante values que almacenará el estado actual de nuestro componente (un objeto con las propiedades username y password inicializadas en vacío). Además, declaramos otra constante llamada setValues, función que utilizaremos para actualizar el estado de values cuando sea necesario. Esto es posible gracias al uso de useState, hook de React que, obteniendo el valor inicial, devuelve el valor inicial más la función que lo actualiza. Todo esto nos sirve para, en resumen, obtener los valores que el usuario introduzca en el formulario.
+  // Creamos una constante values que almacenará el estado inicial de nuestro componente (un objeto con las propiedades username y password inicializadas en vacío). Además, declaramos setValues, función que utilizaremos para actualizar el estado de values cuando sea necesario. Esto es posible gracias al uso de useState, hook de React que, obteniendo el valor inicial, devuelve el valor inicial más la función que lo actualiza. Todo esto nos sirve para, en resumen, obtener los valores que el usuario introduzca en el formulario.
   const [values, setValues] = React.useState({
     username: "",
     password: "",

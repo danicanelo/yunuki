@@ -5,9 +5,9 @@ import { Navbar } from "../../core/components/navbar";
 import "../css/grave.css";
 import YunukiService from "../services/yunuki.service.ts";
 
+// Componente que renderizará el cementerio
 export function Cemetery() {
-  const [deadYunukis, setDeadYunukis] = React.useState([]);
-
+  // Uso de useEffect (cuyo funcionamiento se detalla en yunukiStage.js) para pedirle al servidor todos los yunukis fallecidos y setearlos en deadYunukis. Primero declara la función y después la llama.
   React.useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,6 +20,9 @@ export function Cemetery() {
 
     fetchData();
   }, []);
+
+  // Uso de useState para declarar una constante que almacenará los yunukis fallecidos
+  const [deadYunukis, setDeadYunukis] = React.useState([]);
 
   return (
     <div>
