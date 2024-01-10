@@ -17,6 +17,7 @@ export function CreateYunuki() {
         const breeds = await createYunukiService.getBreeds();
         setBreeds(breeds);
         setUsername(user.username);
+        setSelectedBreed(0);
         // Obtenido el usuario, podemos hacer uso de sus propiedades para averiguar si tiene un yunuki vivo (situación en la que no debería estar en la página de creación de yunuki). Si es así lo redireccionamos a la interfaz de cuidado del yunuki. Para averiguar esto simplemente revisamos, con el método find, si existe algún yunuki cuyo campo 'dead' sea nulo, dado que eso quiere decir que aún no ha fallecido.
         const aliveYunuki = user.yunukis.find(function yunukiAlive(yunuki) {
           return yunuki.dead === null;
@@ -39,7 +40,7 @@ export function CreateYunuki() {
   const [breeds, setBreeds] = useState([]);
 
   // Variable para setear la raza seleccionada
-  const [selectedBreed, setSelectedBreed] = useState(0);
+  const [selectedBreed, setSelectedBreed] = useState();
 
   // Variable para setear nombre del yunuki y su número de raza
   const [createValues, setCreateValues] = useState({

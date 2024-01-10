@@ -8,11 +8,10 @@ export function Yunuki({ yunuki }) {
 
   const isTired = () => yunuki.tiredness > 5;
 
-  /*
   function yunukiSmall(yunuki, date) {
-    const diff = date.getTime() - yunuki.birth.getTime();
+    const diff = date.getTime() - new Date(yunuki.birth).getTime();
     const days = diff / (1000 * 60 * 60 * 24);
-    if (days < 2) {
+    if (days < 1) {
       return true;
     } else {
       return false;
@@ -20,15 +19,14 @@ export function Yunuki({ yunuki }) {
   }
 
   function yunukiMid(yunuki, date) {
-    const diff = date.getTime() - yunuki.birth.getTime();
+    const diff = date.getTime() - new Date(yunuki.birth).getTime();
     const days = diff / (1000 * 60 * 60 * 24);
-    if (days < 4) {
+    if (days >= 1 && days < 2) {
       return true;
     } else {
       return false;
     }
   }
-  */
 
   // Establecemos diferentes funciones que sirvan para modificar las clases correspondientes a cada parte del yunuki. Detallamos la primera a modo de ejemplo.
   const getGlobalClass = () => {
@@ -48,14 +46,14 @@ export function Yunuki({ yunuki }) {
     if (yunuki.breed.name === "Yonoko") {
       globalClass = globalClass + " yonoko";
     }
-    /*
-    if(yunukiSmall){
-      globalClass = globalClass + " small-yunuki"
+
+    if (yunukiSmall(yunuki, new Date())) {
+      globalClass = globalClass + " small-yunuki";
     }
-    if(yunukiMid){
-      globalClass = globalClass + " mid-yunuki"
+    if (yunukiMid(yunuki, new Date())) {
+      globalClass = globalClass + " mid-yunuki";
     }
-    */
+
     return globalClass;
   };
 
