@@ -1,3 +1,4 @@
+/* Esta es la clase principal para el cuerpo del yunuki. La hacemos flex para que pueda funcionar como un contenedor flex, de modo que se pueda usar este sistema en sus hijos. Se justifica su contenido con espacio intermedio para que automáticamente situe su contenido. Se centra su contenido. Se establecen una altura, una anchura y un color de fondo. Se setean unos radios para el borde que le den forma. Se establece un padding que garantice espacio alrededor del yunuki. por último se le aplica la animación move indicando que dure 5 segundos y que se repita indefinidamente.  */
 .yunuki {
   display: flex;
   justify-content: space-between;
@@ -11,16 +12,19 @@
   animation: move 5s infinite;
 }
 
+/* Si el yunuki es recién nacido, se le aplica la clase small-yunuki que modifica el tamaño (altura y anchura) del contenedor que funciona como cuerpo del yunuki */
 .small-yunuki {
   height: 200px;
   width: 180px;
 }
 
+/* Si el yunuki es adolescente, se le aplica la clase mid-yunuki que modifica el tamaño del contenedor que funciona como cuerpo del yunuki */
 .mid-yunuki {
   height: 250px;
   width: 230px;
 }
 
+/* Esta es la clase principal para los ojos del yunuki. No debe eliminarse nunca. Les da una anchura, un color de fondo, redondea sus bordes y les aplica la animación blink, que durará 3 segundos y que se repetirá indefinidamente */
 .eye {
   width: 25px;
   background-color: #000;
@@ -28,13 +32,15 @@
   animation: blink 3s infinite;
 }
 
+/* Si el yunuki está cansado le aplicaremos la clase tired-eye a sus ojos, que modifica el aspecto de los bordes, aplica una posición relativa para poder situarlos un poco más abajo con bottom y que así transmita más sensación de cansancio. Por último aplica la animación tired-blink que durará 5 segundos y se repetira indefinidamente. */
 .tired-eye {
   border-radius: 0 0 50% 50%;
   position: relative;
   bottom: -8%;
-  animation: tired-blink 5s infinite;
+  animation: tired-blink 10s infinite;
 }
 
+/* Esta clase no se está usando actualmente, se pretende en el futuro implementar una animación de yunuki durmiendo pero no me ha dado tiempo. La animación está construída pero falta construir la lógica y la interfaz. */
 .sleeping-eye {
   width: 40px;
   border-radius: 0 0 50% 50%;
@@ -43,6 +49,7 @@
   animation: sleeping-blink 5s infinite;
 }
 
+/* El resto de clases funciona de manera similar, estableciendo una clase principal (como mouth en este caso) que debe aplicarse al elemento constantemente, y otras clases que modifiquen ciertas propiedades según el estado del yunuki sea uno u otro. Las clases que contienen la palabra "sleeping" son clases que no se aplican por lo comentado en la clase anterior "sleeping-eye" */
 .mouth {
   width: 120px;
   height: 20px;
@@ -121,14 +128,15 @@
   }
 }
 
+/* Las animaciones usan dos grupos de porcentajes, el primero (0, 20 y 100) indican que, durante la animación, en esos puntos la altura del elemento debe ser de 12px, mientras que en el 90% debe ser de 2px. Esto genera la animación, a lo largo del tiempo indicado en la llamada a la animación. El resto de animaciones funcionan similar con pequeñas diferencias como por ejemplo translate, que se encarga de posicionar los elementos según se indique */
 @keyframes tired-blink {
   0%,
   20%,
   100% {
     height: 12px;
   }
-  10% {
-    height: 1px;
+  90% {
+    height: 2px;
   }
 }
 
@@ -189,6 +197,7 @@
   animation: tired-move 10s infinite;
 }
 
+/* Las clases por defecto corresponden a la raza Yanaka. Para dar estilo a las otras dos razas posibles se crean estas dos clases que modifican el color y la forma del cuerpo. Tanto estas como la clase dirt (sucio) apuntan también a las piernas del yunuki dado que son un elemento separado que quedaría fuera si no, y también necesitamos colorearlas */
 .yonoko,
 .yonoko .leg {
   background-color: #dd83ce;

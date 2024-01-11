@@ -1,12 +1,12 @@
 // Este componente crea los yunukis. Retorna un div contenedor de cinco divs más que conforman la estructura del yunuki según se le apliquen unas clases u otras.
 
 export function Yunuki({ yunuki }) {
-  // Establecemos tres funciones que evalúen si algún parámetro del yunuki ha sobrepasado la mitad de su capacidad. Nos servirán para aplicar unas clases u otras según su estado.
-  const isHungry = () => yunuki.hunger > 5;
+  // Establecemos tres funciones que evalúen si algún parámetro del yunuki ha llegado a la mitad de su capacidad. Nos servirán para aplicar unas clases u otras según su estado.
+  const isHungry = () => yunuki.hunger >= 5;
 
-  const isDirty = () => yunuki.dirt > 5;
+  const isDirty = () => yunuki.dirt >= 5;
 
-  const isTired = () => yunuki.tiredness > 5;
+  const isTired = () => yunuki.tiredness >= 5;
 
   function yunukiSmall(yunuki, date) {
     const diff = date.getTime() - new Date(yunuki.birth).getTime();
