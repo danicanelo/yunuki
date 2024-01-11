@@ -12,7 +12,7 @@ export function CreateYunuki() {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        // Hace uso de los servicios correspondientes para obtener el usuario y las razas, posteriormente los setea mediante useState en las variables declaradas más abajo
+        // Hace uso de los servicios correspondientes para obtener el usuario y las razas, posteriormente los setea mediante useState en las variables declaradas más abajo. Además de setear username y breeds, también setea selectedBreed (que nos servirá para almacenar la raza seleccionada) a 0
         const user = await AuthService.getUser();
         const breeds = await createYunukiService.getBreeds();
         setBreeds(breeds);
@@ -33,13 +33,13 @@ export function CreateYunuki() {
     fetchData();
   }, []);
 
-  // Variable para setear el nombre de usuario
+  // Variable para setear el nombre de usuario, indicamos comillas porque contendrá un string
   const [username, setUsername] = useState("");
 
-  // Variable para setear las razas
+  // Variable para setear las razas, indicamos corchetes porque contendrá un array
   const [breeds, setBreeds] = useState([]);
 
-  // Variable para setear la raza seleccionada
+  // Variable para setear la raza seleccionada, dejamos el paréntesis vacío porque contendrá un número que no necesita valor inicial
   const [selectedBreed, setSelectedBreed] = useState();
 
   // Variable para setear nombre del yunuki y su número de raza
@@ -75,14 +75,14 @@ export function CreateYunuki() {
     // Extraemos el target y, de éste, las propiedades name y value
     const { target } = evt;
     const { name, value } = target;
-    // Mediante el spread operator creamos un objeto newValues que contendrá todos los values actuales y los sustituirá por los recibidos
+    // Mediante el spread operator creamos un objeto newValues que contendrá los createValues actuales y los modificará con los nuevos valores
     const newValues = {
       ...createValues,
       [name]: value,
     };
-    // console.log(createValues);
+    // Seteamos createValues con newValues
     setCreateValues(newValues);
-    // console.log(createValues);
+    // Seteamos selectedBreed al valor almacenado en newValues.breed. Le restamos uno para que, al recorrer el array de breeds, coincida con el orden correcto
     setSelectedBreed(newValues.breed - 1);
   }
 
@@ -109,6 +109,7 @@ export function CreateYunuki() {
                 <label className="label" htmlFor="breed">
                   Tipo de yunuki
                 </label>
+                {/* Para el desplegable, mapeamos el array de breeds y, por cada uno recorrido, generamos un elemento html option con su id como value e imprimimos su nombre en pantalla */}
                 <div className="select">
                   <select id="breed" name="breed" onChange={handleChange}>
                     {breeds.map((breed, i) => (
@@ -119,7 +120,7 @@ export function CreateYunuki() {
                   </select>
                 </div>
               </div>
-
+              {/* Utilizamos nuestro componente YunukiTypeMsg para imprimir la info relativa a la raza seleccionada en el desplegable. Es aquí donde se hace uso de selectedBreed, que nos sirve como índice para la posición del array breeds de la que queremos extraer información. Las && forman parte de una sintaxis que nos permite hacer lo siguiente: evalua lo que hay antes de las && y, si se cumple, entonces ejecuta las instrucciones tras las &&. Si no no. */}
               {breeds[selectedBreed] !== undefined && (
                 <YunukiTypeMsg msg={breeds[selectedBreed].info} />
               )}
