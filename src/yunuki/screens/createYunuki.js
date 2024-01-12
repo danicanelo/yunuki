@@ -42,11 +42,13 @@ export function CreateYunuki() {
   // Variable para setear la raza seleccionada, dejamos el paréntesis vacío porque contendrá un número que no necesita valor inicial
   const [selectedBreed, setSelectedBreed] = useState();
 
-  // Variable para setear nombre del yunuki y su número de raza
+  // Variable para setear nombre del yunuki y su número de raza (seteamos la raza a 1 para que se muestre Yanaka como primera opción del desplegable)
   const [createValues, setCreateValues] = useState({
     yunukiname: "",
-    breed: 0,
+    breed: 1,
   });
+
+  console.log(createValues);
 
   const navigate = useNavigate();
 
@@ -63,7 +65,7 @@ export function CreateYunuki() {
       if (result) {
         navigate("/yunuki");
       } else {
-        alert("Introduce datos adecuados");
+        alert("Introduce un nombre para tu yunuki");
       }
     } catch (e) {
       console.log("No se puede conectar con el servidor", e);
@@ -81,7 +83,9 @@ export function CreateYunuki() {
       [name]: value,
     };
     // Seteamos createValues con newValues
+    console.log(newValues);
     setCreateValues(newValues);
+    console.log(newValues);
     // Seteamos selectedBreed al valor almacenado en newValues.breed. Le restamos uno para que, al recorrer el array de breeds, coincida con el orden correcto
     setSelectedBreed(newValues.breed - 1);
   }

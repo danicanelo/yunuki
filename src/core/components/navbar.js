@@ -14,7 +14,7 @@ export function Navbar() {
       try {
         const user = await AuthService.getUser();
         setUsername(user.username);
-        console.log(location);
+        // console.log(location);
       } catch (e) {
         console.error("Usuario no encontrado", e);
         navigate("/auth/login");
@@ -61,7 +61,7 @@ export function Navbar() {
           <span aria-hidden="true"></span>
         </a>
       </div>
-      {console.log(isActive)}
+      {/*console.log(isActive)*/}
       <div id="navbarBasicExample" className={"navbar-menu"}>
         <div className="navbar-start"></div>
 
