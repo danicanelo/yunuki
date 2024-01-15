@@ -53,7 +53,7 @@ export default class AuthService {
   static async getUser() {
     const result = await fetch(this.apiUrl + "/users/me", {
       method: "GET",
-      // En los encabezados incluimos la autorización, que consta de la palabra literal Bearer seguida de un espacio y el JWT almacenado en el navegador del usuario mediante getJwt, establecido más abajo
+      // En los encabezados incluimos la autorización, que consta de la palabra literal Bearer seguida de un espacio y el JWT almacenado en el navegador del usuario y obtenido mediante getJwt, establecido más abajo
       headers: {
         Authorization: "Bearer " + AuthService.getJwt(),
         "Content-Type": "application/json",

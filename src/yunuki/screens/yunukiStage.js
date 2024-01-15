@@ -16,7 +16,7 @@ export function YunukiStage() {
     // setInterval ejecuta la función que se le indique como primer parámetro cada cierto tiempo, que serán los milisegundos introducidos como segundo parámetro. En este caso la función es fetchYunukiData y el intervalo de tiempo es cada 10000 milisegundos (cada 10 segundos). De esta forma mantenemos actualizados los parámetros del yunuki y nos aseguramos de salir de la interfaz de cuidado si el yunuki muere. El proceso devuelve un "identificador de intervalo" que almacenamos en 'interval' y que nos servirá para setear en fetchInterval el ciclo actual, de modo que podamos finalizarlo con clearInterval
     const interval = setInterval(function () {
       fetchYunukiData();
-    }, 10000);
+    }, 20000);
     setFetchInterval(interval);
     return function () {
       clearInterval(fetchInterval);
