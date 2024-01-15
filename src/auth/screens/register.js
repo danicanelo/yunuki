@@ -24,14 +24,15 @@ export function Register() {
         values.email,
         values.password
       );
-      if (result) {
+      if (result.status === 201) {
         await AuthService.login(values.username, values.password);
         navigate("/create-yunuki");
       } else {
-        alert("Introduce datos adecuados");
+        const error = await result.json();
+        alert(error.message);
       }
     } catch (e) {
-      console.log("Hay algún problema con el servidor", e);
+      alert("Hay algún problema con el servidor");
     }
   }
 

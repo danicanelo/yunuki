@@ -6,11 +6,11 @@ export function Grave({ name, birthDate, deadDate }) {
       <div className="name">{name}</div>
       <div className="detail date">
         Nacido el: <br></br>
-        {birthDate}
+        {new Date(birthDate).toLocaleDateString()}
       </div>
       <div className="detail date">
         Fallecido el: <br></br>
-        {deadDate}
+        {new Date(deadDate).toLocaleDateString()}
       </div>
       <div className="rip">R.I.P.</div>
     </div>

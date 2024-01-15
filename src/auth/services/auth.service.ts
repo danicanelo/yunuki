@@ -42,11 +42,7 @@ export default class AuthService {
         password,
       }),
     });
-    if (result.status === 201) {
-      return true;
-    } else {
-      return false;
-    }
+    return result;
   }
 
   // getUser no recibe ningún parámetro dado que su función es obtener el usuario conectado en el momento de su invocación, por el mismo motivo su método es GET y no POST
