@@ -29,7 +29,7 @@ export default class AuthService {
     return false;
   }
 
-  // La función register funciona de manera muy similar a login, con el único cambio (aparte de recibir un parámetro nuevo como es email) de que evalua si la respuesta del servidor es 201 (que significa que el recurso ha sido creado con éxito)
+  // La función register funciona de manera similar a login, añadiendo un email a los parámetros. Devolvemos la respuesta completa del servidor.
   static async register(username: string, email: string, password: string) {
     const result = await fetch(this.apiUrl + "/users/register", {
       method: "POST",

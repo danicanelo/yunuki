@@ -4,7 +4,7 @@ import AuthService from "../../auth/services/auth.service.ts";
 import { Input } from "../../core/components/input.js";
 import { YunukiTypeMsg } from "../../core/components/message.js";
 import { Navbar } from "../../core/components/navbar.js";
-import createYunukiService from "../services/createYunuki.service.ts";
+import YunukiService from "../services/yunuki.service.ts";
 
 // Componente que renderizará la interfaz de creación del yunuki
 export function CreateYunuki() {
@@ -14,7 +14,7 @@ export function CreateYunuki() {
       try {
         // Hace uso de los servicios correspondientes para obtener el usuario y las razas, posteriormente los setea mediante useState en las variables declaradas más abajo. Además de setear username y breeds, también setea selectedBreed (que nos servirá para almacenar la raza seleccionada) a 0
         const user = await AuthService.getUser();
-        const breeds = await createYunukiService.getBreeds();
+        const breeds = await YunukiService.getBreeds();
         setBreeds(breeds);
         setUsername(user.username);
         setSelectedBreed(0);
@@ -57,8 +57,8 @@ export function CreateYunuki() {
     // Prevenimos el comportamiento por defecto de submit
     evt.preventDefault();
     try {
-      // Utilizamos el método dispuesto en createYunukiService para crear un yunuki y lo almacenamos en result. Recibe los parámetros almacenados en createValues. Si los datos introducidos son adecuados el yunuki se crea y navegamos a la interfaz de cuidados. Si no lo son, se lanza un mensaje de advertencia y se permanece en la página. Todo esto se controla mediante un try catch, si algo fallase con el servidor queda capturado en el catch y se informa de ello.
-      const result = await createYunukiService.createYunuki(
+      // Utilizamos el método dispuesto en YunukiService para crear un yunuki y lo almacenamos en result. Recibe los parámetros almacenados en createValues. Si los datos introducidos son adecuados el yunuki se crea y navegamos a la interfaz de cuidados. Si no lo son, se lanza un mensaje de advertencia y se permanece en la página. Todo esto se controla mediante un try catch, si algo fallase con el servidor queda capturado en el catch y se informa de ello.
+      const result = await YunukiService.createYunuki(
         createValues.yunukiname,
         createValues.breed
       );
