@@ -62,7 +62,7 @@ export function Navbar() {
         <a className="navbar-item" href="http://localhost:3001/">
           <img src={logoYunuki} width="112" height="28" />
         </a>
-        {/* Este enlace muestra el icono para el "menú-hamburguesa", que servirá para desplegar el menú de navegación en responsive. Concatenamos la variable 'select' en sus clases para que, si isActive es true, se concatene la clase 'is-active' y se muestre una cruz en vez de las tres rayas del clásico burger-menu (que, dicho sea de paso, dibujan los tres span que contiene inmediatamente debajo) */}
+        {/* Este enlace muestra el icono para el "menú-hamburguesa", que servirá para desplegar el menú de navegación en responsive. Concatenamos la variable 'select' en sus clases para que, si isActive es true, se concatene la clase 'is-active' y se muestre una cruz en vez de las tres rayas del clásico burger-menu (que dibujan los tres span que contiene inmediatamente debajo) */}
         <a
           role="button"
           className={"navbar-burger " + select}
@@ -87,7 +87,7 @@ export function Navbar() {
                 Volver a tu Yunuki
               </Link>
             )}
-            {/* Si la ruta en la que estamos es 'yunuki' necesitamos ofrecer una opción para poder ir al cementerio, por lo que disponemos un enlace para ello */}
+            {/* Y al contrario: si la ruta en la que estamos es 'yunuki' necesitamos ofrecer una opción para poder ir al cementerio, por lo que disponemos un enlace para ello */}
             {location.pathname === "/yunuki" && (
               <Link to="/cemetery" className="mr-6">
                 Ir al Cementerio
