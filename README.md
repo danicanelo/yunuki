@@ -5,7 +5,7 @@
 
 ## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Simulador de mascota virtual estilo Tamagotchi. 
 
 ## Instalación
 
