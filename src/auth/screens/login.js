@@ -65,7 +65,7 @@ export function Login() {
       <div className="box mt-6">
         {/* Indicamos que, al hacer clic el usuario en el botón de Entrar, se invoque a la función handleSubmit, que se encargará de validar sus credenciales y permitir o no el paso */}
         <form onSubmit={handleSubmit}>
-          {/* Para los inputs hacemos uso de un componente aparte creado por nosotros al que le pasamos los diferentes campos (en los componentes separados se explica el funcionamiento de estos campos llamados props, concretamente en el fichero card.js y, este caso particular, en el fichero input.js) requeridos según nuestras necesidades */}
+          {/* Para los inputs hacemos uso de un componente aparte creado por nosotros al que le pasamos los valores de las diferentes propiedades (en los componentes separados se explica el funcionamiento de estas propiedades, concretamente en el fichero card.js y, este caso particular, en el fichero input.js) requeridas según nuestras necesidades */}
           <Input
             label="Nombre de usuario"
             id="username"
