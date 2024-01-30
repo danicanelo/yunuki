@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logoYunuki from "../../assets/yunuki-logo.png";
-import AuthService from "../../auth/services/auth.service.ts";
+import logoYunuki from "../assets/yunuki-logo.png";
+import AuthService from "../auth/services/auth.service.ts";
 
 // Este componente genera la barra de navegación.
 export function Navbar() {

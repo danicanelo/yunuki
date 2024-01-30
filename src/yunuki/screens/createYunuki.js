@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../../auth/services/auth.service.ts";
-import { Input } from "../../core/components/input.js";
-import { YunukiTypeMsg } from "../../core/components/message.js";
-import { Navbar } from "../../core/components/navbar.js";
+import { Input } from "../../components/input.js";
+import { YunukiTypeMsg } from "../../components/message.js";
+import { Navbar } from "../../components/navbar.js";
 import YunukiService from "../services/yunuki.service.ts";
 
 // Componente que renderizará la interfaz de creación del yunuki

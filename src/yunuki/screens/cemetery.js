@@ -1,7 +1,7 @@
 import React from "react";
-import { Card } from "../../core/components/card";
-import { Grave } from "../../core/components/grave";
-import { Navbar } from "../../core/components/navbar";
+import { Card } from "../../components/card";
+import { Grave } from "../../components/grave";
+import { Navbar } from "../../components/navbar";
 import "../css/grave.css";
 import YunukiService from "../services/yunuki.service.ts";
 

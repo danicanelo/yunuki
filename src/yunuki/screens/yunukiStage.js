@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Card } from "../../core/components/card.js";
-import { Navbar } from "../../core/components/navbar.js";
-import { ProgressBar } from "../../core/components/progress-bar.js";
-import { Yunuki } from "../../core/components/yunuki.js";
+import { Card } from "../../components/card.js";
+import { Navbar } from "../../components/navbar.js";
+import { ProgressBar } from "../../components/progress-bar.js";
+import { Yunuki } from "../../components/yunuki.js";
 import "../css/yunuki.css";
 import YunukiService from "../services/yunuki.service.ts";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logoYunuki from "../../assets/yunuki-logo.png";
 import AuthService from "../../auth/services/auth.service.ts";
-import { Input } from "../../core/components/input";
+import { Input } from "../../components/input";
 import YunukiService from "../../yunuki/services/yunuki.service.ts";
 
 // Función principal que renderizará el componente Login

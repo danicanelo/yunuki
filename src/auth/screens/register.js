@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logoYunuki from "../../assets/yunuki-logo.png";
-import { Input } from "../../core/components/input";
+import { Input } from "../../components/input";
 import AuthService from "../services/auth.service.ts";
 
 // Hacemos uso de useState para disponer las variables donde se almacenarán los valores de los campos del formulario.
