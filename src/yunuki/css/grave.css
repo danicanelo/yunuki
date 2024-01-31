@@ -1,0 +1,34 @@
+/* Este fichero se encarga de dar estilo a las tumbas del cementerio. La clase grave proporciona una altura, una anchura y un color de fondo gris. Para darle aspecto de lápida establecemos un border-radius que redondee las esquina superiores. */
+.grave {
+  width: 150px;
+  height: 250px;
+  background-color: #585858;
+  border-radius: 20px 20px 0 0;
+}
+
+/* La clase name configura el espacio de texto para el nombre del yunuki */
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+/* La clase detail configura el espacio para los detalles de la muerte del yunuki*/
+.detail {
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}
+
+/* La clase date da un poco de espacio visual a la parte de arriba de las fechas de nacimiento y muerte */
+.date {
+  margin-top: 5px;
+}
+
+/* La clase rip configura el espacio de texto para el RIP final que acompaña el contenido */
+.rip {
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
