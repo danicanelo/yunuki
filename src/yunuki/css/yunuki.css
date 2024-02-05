@@ -128,7 +128,7 @@
   }
 }
 
-/* Las animaciones usan dos grupos de porcentajes, el primero (0, 20 y 100) indican que, durante la animación, en esos puntos la altura del elemento debe ser de 12px, mientras que en el 90% debe ser de 2px. Esto genera la animación, a lo largo del tiempo indicado en la llamada a la animación. El resto de animaciones funcionan similar con pequeñas diferencias como por ejemplo translate, que se encarga de posicionar los elementos según se indique */
+/* Las animaciones usan dos grupos de porcentajes. En este caso, el primero (0, 20 y 100) indica que, durante la animación, en esos puntos marcados por el porcentaje la altura del elemento debe ser de 12px, mientras que en el 90% debe ser de 2px. Esto genera la animación a lo largo del tiempo indicado en la llamada a la animación. El resto de animaciones funcionan similar con pequeñas diferencias como por ejemplo transform, que se encarga de posicionar los elementos según se indique */
 @keyframes tired-blink {
   0%,
   20%,
