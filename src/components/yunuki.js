@@ -47,6 +47,7 @@ export function Yunuki({ yunuki }) {
       globalClass = globalClass + " yonoko";
     }
 
+    // Se añade la clase correspondiente a la edad del yunuki según sus funciones correspondientes nos devuelvan true o false
     if (yunukiSmall(yunuki, new Date())) {
       globalClass = globalClass + " small-yunuki";
     }
