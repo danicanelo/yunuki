@@ -7,7 +7,7 @@
 
 Simulador de mascota virtual estilo Tamagotchi. 
 
-## Instalación
+## Instalación de dependencias
 
 ```bash
 $ npm install
