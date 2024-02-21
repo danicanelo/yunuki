@@ -9,6 +9,8 @@ import YunukiService from "../services/yunuki.service.ts";
 import sleepLogo from "../../assets/sleep.svg";
 import foodLogo from "../../assets/food.svg";
 import bathLogo from "../../assets/bath.svg";
+import { Modal } from "../../components/modal.js";
+import { useState } from "react";
 
 // Componente que renderizará la interfaz de cuidado del yunuki
 export function YunukiStage() {
@@ -27,8 +29,13 @@ export function YunukiStage() {
   }, []);
 
   // Usos de useState para setear una variable llamada yunuki y otra llamada fetchInterval
-  const [yunuki, setYunuki] = React.useState();
-  const [fetchInterval, setFetchInterval] = React.useState();
+  const [yunuki, setYunuki] = useState();
+  const [fetchInterval, setFetchInterval] = useState();
+  const [modal, setModal] = useState(false);
+  const [action, setAction] = useState("");
+  const toggleModal = () => {
+    setModal(!modal);
+  };
 
   // Instanciación de useNavigate para poder navegar por diferentes rutas
   const navigate = useNavigate();
@@ -97,7 +104,11 @@ export function YunukiStage() {
             <div className="is-flex is-justify-content-center">
               <button
                 className="button is-info mx-2"
-                onClick={() => feedYunuki()}
+                onClick={() => {
+                  feedYunuki();
+                  toggleModal();
+                  setAction("ha comido");
+                }}
               >
                 <img className="fa-personal-icon" src={foodLogo} />
                 Alimentar
@@ -105,18 +116,27 @@ export function YunukiStage() {
 
               <button
                 className="button is-info mx-2"
-                onClick={() => cleanYunuki()}
+                onClick={() => {
+                  cleanYunuki();
+                  toggleModal();
+                  setAction("se ha dado un baño");
+                }}
               >
                 <img className="fa-personal-icon" src={bathLogo} />
                 Limpiar
               </button>
               <button
                 className="button is-info mx-2"
-                onClick={() => sleepYunuki()}
+                onClick={() => {
+                  sleepYunuki();
+                  toggleModal();
+                  setAction("ha descansado");
+                }}
               >
                 <img className="fa-personal-icon" src={sleepLogo} />
                 Dormir
               </button>
+              <Modal isOpen={modal} onClose={toggleModal} yunukiName={yunuki.name} action={action}/>
             </div>
           </div>
         </div>
