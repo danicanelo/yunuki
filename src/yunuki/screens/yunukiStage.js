@@ -6,6 +6,9 @@ import { ProgressBar } from "../../components/progress-bar.js";
 import { Yunuki } from "../../components/yunuki.js";
 import "../css/yunuki.css";
 import YunukiService from "../services/yunuki.service.ts";
+import sleepLogo from "../../assets/sleep.svg";
+import foodLogo from "../../assets/food.svg";
+import bathLogo from "../../assets/bath.svg";
 
 // Componente que renderizará la interfaz de cuidado del yunuki
 export function YunukiStage() {
@@ -96,18 +99,22 @@ export function YunukiStage() {
                 className="button is-info mx-2"
                 onClick={() => feedYunuki()}
               >
+                <img className="fa-personal-icon" src={foodLogo} />
                 Alimentar
               </button>
+
               <button
                 className="button is-info mx-2"
                 onClick={() => cleanYunuki()}
               >
+                <img className="fa-personal-icon" src={bathLogo} />
                 Limpiar
               </button>
               <button
                 className="button is-info mx-2"
                 onClick={() => sleepYunuki()}
               >
+                <img className="fa-personal-icon" src={sleepLogo} />
                 Dormir
               </button>
             </div>

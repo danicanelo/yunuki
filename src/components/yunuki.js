@@ -2,9 +2,9 @@
 
 export function Yunuki({ yunuki }) {
   // Establecemos tres funciones que evalúen si algún parámetro del yunuki ha llegado a la mitad de su capacidad. Nos servirán para aplicar unas clases u otras según su estado.
-  const isHungry = () => yunuki.hunger >= 5;
+  const isHungry = () => yunuki.hunger >= 2;
 
-  const isDirty = () => yunuki.dirt >= 5;
+  const isDirty = () => yunuki.dirt >= 4;
 
   const isTired = () => yunuki.tiredness >= 5;
 
