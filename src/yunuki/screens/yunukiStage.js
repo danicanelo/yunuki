@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import bathLogo from "../../assets/bath.svg";
+import foodLogo from "../../assets/food.svg";
+import sleepLogo from "../../assets/sleep.svg";
 import { Card } from "../../components/card.js";
+import { Modal } from "../../components/modal.js";
 import { Navbar } from "../../components/navbar.js";
 import { ProgressBar } from "../../components/progress-bar.js";
 import { Yunuki } from "../../components/yunuki.js";
 import "../css/yunuki.css";
 import YunukiService from "../services/yunuki.service.ts";
-import sleepLogo from "../../assets/sleep.svg";
-import foodLogo from "../../assets/food.svg";
-import bathLogo from "../../assets/bath.svg";
-import { Modal } from "../../components/modal.js";
-import { useState } from "react";
 
 // Componente que renderizará la interfaz de cuidado del yunuki
 export function YunukiStage() {
@@ -105,9 +104,13 @@ export function YunukiStage() {
               <button
                 className="button is-info mx-2"
                 onClick={() => {
+                  if (yunuki.hunger === 0) {
+                    setAction("no tiene hambre");
+                  } else if (yunuki.hunger > 0) {
+                    setAction("ha comido");
+                  }
                   feedYunuki();
                   toggleModal();
-                  setAction("ha comido");
                 }}
               >
                 <img className="fa-personal-icon" src={foodLogo} />
@@ -117,9 +120,13 @@ export function YunukiStage() {
               <button
                 className="button is-info mx-2"
                 onClick={() => {
+                  if (yunuki.dirt === 0) {
+                    setAction("no necesita bañarse");
+                  } else if (yunuki.dirt > 0) {
+                    setAction("se ha dado un baño");
+                  }
                   cleanYunuki();
                   toggleModal();
-                  setAction("se ha dado un baño");
                 }}
               >
                 <img className="fa-personal-icon" src={bathLogo} />
@@ -128,15 +135,24 @@ export function YunukiStage() {
               <button
                 className="button is-info mx-2"
                 onClick={() => {
+                  if (yunuki.tiredness === 0) {
+                    setAction("no necesita dormir");
+                  } else if (yunuki.tiredness > 0) {
+                    setAction("ha descansado");
+                  }
                   sleepYunuki();
                   toggleModal();
-                  setAction("ha descansado");
                 }}
               >
                 <img className="fa-personal-icon" src={sleepLogo} />
                 Dormir
               </button>
-              <Modal isOpen={modal} onClose={toggleModal} yunukiName={yunuki.name} action={action}/>
+              <Modal
+                isOpen={modal}
+                onClose={toggleModal}
+                yunukiName={yunuki.name}
+                action={action}
+              />
             </div>
           </div>
         </div>
