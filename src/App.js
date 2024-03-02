@@ -6,7 +6,6 @@ import { Login } from "./auth/screens/login";
 import { Register } from "./auth/screens/register";
 import { Cemetery } from "./yunuki/screens/cemetery";
 
-// Este es el componente principal de la aplicación, que utiliza todos nuestros componentes pensados como páginas para establecer las rutas correspondientes que dirijan a cada uno de ellos. Para ello hacemos uso de Route y Routes de la librería react-router. Establecemos también que cualquier otra ruta que no esté contemplada redirija a la pantalla de login mediante Navigate, de react-router-dom
 function App() {
   return (
     <div className="columns">

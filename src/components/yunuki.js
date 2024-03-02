@@ -1,7 +1,4 @@
-// Este componente crea los yunukis. Retorna un div contenedor de cinco divs más que conforman la estructura del yunuki según se le apliquen unas clases u otras.
-
 export function Yunuki({ yunuki }) {
-  // Establecemos tres funciones que evalúen si algún parámetro del yunuki ha llegado a la mitad de su capacidad. Nos servirán para aplicar unas clases u otras según su estado.
   const isHungry = () => yunuki.hunger >= 2;
 
   const isDirty = () => yunuki.dirt >= 4;
@@ -28,18 +25,14 @@ export function Yunuki({ yunuki }) {
     }
   }
 
-  // Establecemos diferentes funciones que sirvan para modificar las clases correspondientes a cada parte del yunuki. Detallamos la primera a modo de ejemplo.
   const getGlobalClass = () => {
-    // Establecemos una variable que almacene las clases principales que estarán siempre
     let globalClass = "yunuki mx-auto";
-    // Dependiendo del estado del yunuki, a las clases principales se le añaden unas u otras
     if (isTired()) {
       globalClass = globalClass + " tired";
     }
     if (isDirty()) {
       globalClass = globalClass + " dirt";
     }
-    // Se añade la clase correspondiente a la raza del yunuki según el nombre de ésta
     if (yunuki.breed.name === "Yiniki") {
       globalClass = globalClass + " yiniki";
     }
@@ -47,7 +40,6 @@ export function Yunuki({ yunuki }) {
       globalClass = globalClass + " yonoko";
     }
 
-    // Se añade la clase correspondiente a la edad del yunuki según sus funciones correspondientes nos devuelvan true o false
     if (yunukiSmall(yunuki, new Date())) {
       globalClass = globalClass + " small-yunuki";
     }
@@ -85,7 +77,6 @@ export function Yunuki({ yunuki }) {
     return legClass;
   };
 
-  // En el JSX devuelto, en vez de las clases literales utilizamos las funciones correspondientes, de modo que el aspecto del yunuki esté siempre actualizado según su estado
   return (
     <div className={getGlobalClass()}>
       <div className={getEyeClass()}></div>

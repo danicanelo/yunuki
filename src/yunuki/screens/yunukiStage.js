@@ -11,13 +11,9 @@ import { Yunuki } from "../../components/yunuki.js";
 import "../css/yunuki.css";
 import YunukiService from "../services/yunuki.service.ts";
 
-// Componente que renderizará la interfaz de cuidado del yunuki
 export function YunukiStage() {
-  // useEffect es un hook de React usado para ejecutar su contenido inmediatamente después del renderizado del componente. Es decir, el contenido de esta función se ejecutará cuando entremos a esta página (si nada falla en su carga), dado que el componente pretende ser la propia página.
   React.useEffect(function () {
-    // Llama a la función fetchYunukiData, que se encarga de evaluar si el usuario tiene un yunuki vivo y, por lo tanto, puede permanecer en esta página. En caso contrario envía al usuario a la página de creación del yunuki. ADemás de eso también setea las propiedades del yunuki según vayan cambiando. Esta función se detalla en su construcción.
     fetchYunukiData();
-    // setInterval ejecuta la función que se le indique como primer parámetro cada cierto tiempo, que serán los milisegundos introducidos como segundo parámetro. En este caso la función es fetchYunukiData y el intervalo de tiempo es cada 10000 milisegundos (cada 10 segundos). De esta forma mantenemos actualizados los parámetros del yunuki y nos aseguramos de salir de la interfaz de cuidado si el yunuki muere. El proceso devuelve un "identificador de intervalo" que almacenamos en 'interval' y que nos servirá para setear en fetchInterval el ciclo actual, de modo que podamos finalizarlo con clearInterval
     const interval = setInterval(function () {
       fetchYunukiData();
     }, 20000);
@@ -27,7 +23,6 @@ export function YunukiStage() {
     };
   }, []);
 
-  // Usos de useState para setear una variable llamada yunuki y otra llamada fetchInterval
   const [yunuki, setYunuki] = useState();
   const [fetchInterval, setFetchInterval] = useState();
   const [modal, setModal] = useState(false);
@@ -36,12 +31,9 @@ export function YunukiStage() {
     setModal(!modal);
   };
 
-  // Instanciación de useNavigate para poder navegar por diferentes rutas
   const navigate = useNavigate();
 
-  // Función para alimentar a los yunukis
   async function feedYunuki() {
-    // Hacemos uso del método feedYunuki del YunukiService y almacenamos el resultado en newYunuki, que utilizaremos para setear yunuki a través de setYunuki. La misma operación se realiza para cleanYunuki y sleepYunuki
     const newYunuki = await YunukiService.feedYunuki();
     setYunuki(newYunuki);
   }
@@ -56,7 +48,6 @@ export function YunukiStage() {
     setYunuki(newYunuki);
   }
 
-  // Función para evaluar si el usuario tiene un yunuki vivo asociado a través del método getYunuki de YunukiService. Si lo encuentra lo almacena en una variable 'yunuki' y la usa para setear el yunuki del useState. Si falla captura el error y navega automáticamente a create-yunuki, dado que si el usuario no tiene un yunuki vivo asociado significa que necesita crear uno y no debe estar en la interfaz de cuidados
   async function fetchYunukiData() {
     try {
       const yunuki = await YunukiService.getYunuki();
@@ -67,7 +58,6 @@ export function YunukiStage() {
     }
   }
 
-  // Si a estas alturas del programa el servidor no ha devuelto un yunuki pero tampoco nos ha llevado a otra ruta significa que el proceso está tardando por la razón que sea. Para evitar que se muestre la interfaz mostramos un mensaje de que la aplicación está cargando
   if (!yunuki) {
     return (
       <div>
@@ -77,7 +67,6 @@ export function YunukiStage() {
     );
   }
 
-  // Estructura JSX de la página. Ciertos valores (como el nombre del yunuki, su raza o sus parámetros) son obtenidos directamente del objeto yunuki devuelto por el servidor.
   return (
     <div>
       <Navbar />
