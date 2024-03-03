@@ -9,6 +9,8 @@
 
 Simulador de mascota virtual estilo Tamagotchi. 
 
+API: https://github.com/danicanelo/yunuki-api
+
 ## Instalación
 
 ```bash
@@ -20,3 +22,5 @@ $ npm install
 ```bash
 $ npm start
 ```
+
+
