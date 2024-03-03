@@ -1,6 +1,5 @@
 import AuthService from "../../auth/services/auth.service.ts";
 
-// Este servicio nos permitirá conectar con las rutas dispuestas por la API relacionadas con la interfaz de cuidado de los yunukis. Usamos AuthService para poder firmar la autorización con el JWT. Por lo demás, el funcionamiento de los métodos es muy similar al que ya se explica en detalle en auth.service.ts, con la diferencia de que los errores que se esperan desde el servidor tienen que ver con errores 404, de tipo "no encontrado".
 export default class YunukiService {
   private static readonly apiUrl = "http://localhost:3000";
 

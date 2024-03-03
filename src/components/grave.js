@@ -1,5 +1,3 @@
-// En este componente creamos una tumba para los yunukis fallecidos. Recibe el nombre del yunuki, su fecha de nacimiento y su fecha de muerte.
-
 export function Grave({ name, birthDate, deadDate }) {
   return (
     <div className="grave m-5 column is-narrow-desktop">
